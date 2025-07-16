@@ -5,64 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jan-Paul van den Berg - Virtual CV</title>
   <style>
+  
+.hero-header {
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1508896080210-93c377eb4135?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+  border-bottom: 5px solid #007acc;
+}
+
+
+.hero-header .overlay {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.3));
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+
+.hero-header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+.hero-header p {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+  
+  
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      line-height: 1.6;
-      background: #f8f9fa;
+      background: linear-gradient(to bottom right, #f0f4f8, #d9eaf7);
       color: #333;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-in;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     header {
-      background: #007acc;
+      background: linear-gradient(to right, #007acc, #005b99);
       color: #fff;
-      padding: 1em 0;
+      padding: 2em 0;
       text-align: center;
+      animation: slideDown 1s ease-in;
     }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+
+
     nav {
       background: #005b99;
       display: flex;
       justify-content: center;
-      gap: 1em;
       flex-wrap: wrap;
+      gap: 1em;
+      padding: 1em;
+      animation: fadeIn 1.2s ease-in;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
-      padding: 0.5em;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      transition: background 0.3s ease;
     }
+
     nav a:hover {
-      text-decoration: underline;
+      background: #007acc;
     }
+
     section {
       padding: 2em;
-      max-width: 800px;
-      margin: auto;
+      max-width: 900px;
+      margin: 2em auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in;
     }
+
     h2 {
       color: #005b99;
       border-bottom: 2px solid #007acc;
       padding-bottom: 0.3em;
     }
+
     footer {
       text-align: center;
-      padding: 1em;
-      background: #eee;
+      padding: 2em;
+      background: #e1ecf4;
       font-size: 0.9em;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+
     ul {
       list-style: disc;
-      padding-left: 1.2em;
+      padding-left: 1.5em;
+    }
+
+    a {
+      color: #007acc;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #005b99;
+    }
+
+    .project-link {
+      display: block;
+      margin: 0.5em 0;
+      transition: transform 0.2s;
+    }
+
+    .project-link:hover {
+      transform: scale(1.05);
+    }
+
+    img.hero {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-bottom: 5px solid #007acc;
+      animation: fadeIn 1s ease-in;
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero-header">
+  <div class="overlay">
     <h1>Jan-Paul van den Berg</h1>
     <p>BSc Information Technology Student | Aspiring Programmer</p>
-  </header>
+  </div>
+</header>
+
 
   <nav>
     <a href="#profile">Profile</a>
@@ -85,8 +186,7 @@
     <ul>
       <li>
         <strong>Bachelor of Science in Information Technology</strong><br/>
-        North-West University<br/>
-        Expected Graduation: 2025<br/>
+        North-West University – Expected Graduation: 2025<br/>
         <em>Notable Modules:</em>
         <ul>
           <li>Object Oriented Programming – 86%</li>
@@ -98,8 +198,7 @@
       </li>
       <li>
         <strong>National Senior Certificate</strong><br/>
-        Monument High School, Krugersdorp, Gauteng<br/>
-        Graduation Year: 2022<br/>
+        Monument High School, Krugersdorp, Gauteng – Graduation Year: 2022<br/>
         <em>Achievements:</em>
         <ul>
           <li>Top 10 academic ranking (85% average)</li>
@@ -115,59 +214,44 @@
   <section id="experience">
     <h2>Experience</h2>
     <ul>
-      <li>
-        <strong>Programming Tutor</strong> – North-West University, Potchefstroom (2025)
+      <li><strong>Programming Tutor</strong> – North-West University (2025)
         <ul>
           <li>Tutored peers in Python, SQL, and database concepts</li>
-          <li>Developed interactive exam prep tools covering string manipulation, list operations, and SQLite handling</li>
+          <li>Created exam prep tools for string manipulation and SQLite</li>
         </ul>
       </li>
-      <li>
-        <strong>Computer Literacy Class Teacher</strong> – North-West University, Potchefstroom (2025)
+      <li><strong>Computer Literacy Teacher</strong> – NWU (2025)
         <ul>
-          <li>Taught basic computer skills to adult learners and beginners</li>
-          <li>Guided learners on Microsoft Word, Excel, internet browsers, and email</li>
-          <li>Helped improve digital literacy in the community</li>
+          <li>Taught adults basic digital skills (Word, Excel, email, browsers)</li>
+          <li>Improved community digital literacy</li>
         </ul>
       </li>
-      <li>
-        <strong>Ana Paula's Coffee Shop</strong> – Part-Time Barista (2024)
-      </li>
+      <li><strong>Ana Paula's Coffee Shop</strong> – Part-Time Barista (2024)</li>
     </ul>
   </section>
-  
+
   <section id="Projects">
     <h2>Projects</h2>
-	<p>Here's just a few of the projects that I've been working on in my own time!</p>
-        <li><strong>Instant Messaging App - <a href ="https://github.com/JPvdBerg/Instant-Messaging-App" target="_blank">
-	  https://github.com/JPvdBerg/Instant-Messaging-App
-	  </a><br/></strong></li>
-	  
-	  <li><strong>Snake Game - <a href ="https://github.com/JPvdBerg/Snake-Game" target="_blank">
-	  https://github.com/JPvdBerg/Snake-Game
-	  </a><br/></strong></li>
-	  
-	  <li><strong>Minesweeper - <a href ="https://github.com/JPvdBerg/Minesweeper" target="_blank">
-	  https://github.com/JPvdBerg/Minesweeper
-	  </a><br/></strong></li>
-    
+    <p>Some personal and academic projects:</p>
+    <a href="https://github.com/JPvdBerg/Instant-Messaging-App" class="project-link" target="_blank">Instant Messaging App</a>
+    <a href="https://github.com/JPvdBerg/Snake-Game" class="project-link" target="_blank">Snake Game</a>
+    <a href="https://github.com/JPvdBerg/Minesweeper" class="project-link" target="_blank">Minesweeper</a>
   </section>
 
   <section id="skills">
     <h2>Key Skills</h2>
     <ul>
-      <li>Programming Languages: Python, MySQL, C#, C++, Java, HTML</li>
-      <li>Database Systems: SQLite, MySQL, SQL Server</li>
-      <li>Networking Tools: Cisco Packet Tracer, OSI Model understanding</li>
-      <li>Systems Design: UML, EERD, Crow’s Foot notation</li>
+      <li>Programming: Python, C#, C++, Java, HTML</li>
+      <li>Database: SQLite, MySQL, SQL Server</li>
+      <li>Networking: Cisco Packet Tracer, OSI Model</li>
+      <li>Systems Design: UML, EERD, Crow's Foot notation</li>
       <li>Software: Visual Studio, Oracle SQL Developer, Git</li>
-      <li>Problem-solving and teamwork</li>
-      <li>Excellent communication skills</li>
+      <li>Strong communication and problem-solving</li>
     </ul>
   </section>
 
   <section id="activities">
-    <h2>Activities and Interests</h2>
+    <h2>Activities & Interests</h2>
     <ul>
       <li>Rock Climbing</li>
       <li>Guitar</li>
@@ -182,17 +266,9 @@
     <p>
       Phone: 065-918-0206<br/>
       Email: <a href="mailto:janpaulvdberg@gmail.com">janpaulvdberg@gmail.com</a><br/>
-      LinkedIn: 
-      <a href="https://www.linkedin.com/in/jan-paul-van-den-berg-a46686270" target="_blank">
-        linkedin.com/in/jan-paul-van-den-berg-a46686270
-      </a><br/>
-	  
-	  GitHub Profile: <a href ="https://github.com/JPvdBerg" target="_blank">
-	  https://github.com/JPvdBerg
-	  </a><br/>
-	  
-	  CV: <a href="https://github.com/JPvdBerg/Virtual-CV/blob/main/Jan-Paul%20van%20den%20Berg%20Curriculum%20vitae.pdf" target="_blank">Download My CV (PDF)</a><br/>
-
+      LinkedIn: <a href="https://www.linkedin.com/in/jan-paul-van-den-berg-a46686270" target="_blank">View Profile</a><br/>
+      GitHub: <a href="https://github.com/JPvdBerg" target="_blank">github.com/JPvdBerg</a><br/>
+      CV: <a href="https://github.com/JPvdBerg/Virtual-CV/blob/main/Jan-Paul%20van%20den%20Berg%20Curriculum%20vitae.pdf" target="_blank">Download PDF</a>
     </p>
   </section>
 
