@@ -19,6 +19,11 @@
   transform: none;
 }
 
+section {
+  padding: 6rem 2rem; /* increased top padding */
+}
+
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -139,6 +144,8 @@
     <a href="#contact">Contact</a>
   </nav>
 
+
+
   <section id="profile" class="fade-in-section">
     <h2>Profile</h2>
     <p>I am a passionate and hardworking third-year BSc Information Technology student with a strong interest in programming and problem-solving. I strive to continuously improve my skills and contribute meaningfully to every project I take on.</p>
@@ -203,23 +210,26 @@
 </script>
 
 <script>
-  const faders = document.querySelectorAll('.fade-in-section');
+  document.addEventListener('DOMContentLoaded', () => {
+    const faders = document.querySelectorAll('.fade-in-section');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target); // Remove this line if you want them to fade in again on re-entry
-      }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
 
-  faders.forEach(section => {
-    observer.observe(section);
+    faders.forEach(section => {
+      observer.observe(section);
+    });
   });
 </script>
+
 
 
 </body>
