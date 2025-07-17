@@ -139,12 +139,12 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="profile">
+  <section id="profile" class="fade-in-section">
     <h2>Profile</h2>
     <p>I am a passionate and hardworking third-year BSc Information Technology student with a strong interest in programming and problem-solving. I strive to continuously improve my skills and contribute meaningfully to every project I take on.</p>
   </section>
 
-  <section id="education">
+  <section id="education" class="fade-in-section">
     <h2>Education</h2>
     <div class="education">
       <h3>North-West University (2023 - Present)</h3>
@@ -155,7 +155,7 @@
     </div>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="fade-in-section">
     <h2>Experience</h2>
     <div class="job">
       <h3>Ana Paula’s Coffee Shop (Jan 2024 – Present)</h3>
@@ -167,7 +167,7 @@
     </div>
   </section>
 
-  <section id="achievements">
+  <section id="achievements" class="fade-in-section">
     <h2>Achievements</h2>
     <div class="achievement">
       <p> Top 10 academic performer in high school.</p>
@@ -176,7 +176,7 @@
     </div>
   </section>
 
-  <section id="hobbies">
+  <section id="hobbies" class="fade-in-section">
     <h2>Hobbies</h2>
     <div class="hobby">
       <p> Gaming — Favourite game: Fallout: New Vegas.</p>
@@ -185,7 +185,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-in-section">
     <h2>Contact</h2>
     <p> 065-918-0206</p>
     <p> <a href="mailto:janpaulvdberg@gmail.com" style="color: #eac62c;">janpaulvdberg@gmail.com</a></p>
@@ -201,6 +201,26 @@
     window.scrollTo(0, 0);
   };
 </script>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in-section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Remove this line if you want them to fade in again on re-entry
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  faders.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 
 </body>
 </html>
