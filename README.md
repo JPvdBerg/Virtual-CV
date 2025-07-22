@@ -16,7 +16,7 @@ This project is a fully responsive, one-page HTML and CSS website designed to re
 ## Live Demo
 
 You can view the live version of the website here:  
-🔗 [https://jpvdberg.github.io/Virtual-CV](https://jpvdberg.github.io/Virtual-CV)
+[https://jpvdberg.github.io/Virtual-CV](https://jpvdberg.github.io/Virtual-CV)
 
 ## Features
 
