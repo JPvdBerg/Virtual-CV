@@ -7,6 +7,7 @@ import AnimatedList from './components/AnimatedList.jsx';
 import LetterGlitch from './components/LetterGlitch.jsx';
 import FaultyTerminal from './components/FaultyTerminal.jsx'; 
 import LogoLoop from './components/LogoLoop.jsx';
+import DecryptedText from './components/DecryptedText.jsx'; // <-- NEW IMPORT
 
 // --- Import icons for the LogoLoop demo ---
 import {
@@ -14,8 +15,17 @@ import {
   SiPython,
   SiMysql,
   SiGit,
-  SiGnubash // Corrected Terminal Icon
+  SiGnubash 
 } from 'react-icons/si';
+
+// --- Setup for DecryptedText defaults ---
+const DECRYPT_PROPS = {
+  animateOn: "view",
+  speed: 40,
+  maxIterations: 15,
+  sequential: true,
+  revealDirection: "center"
+};
 
 // --- Setup for LogoLoop ---
 const techLogos = [
@@ -25,7 +35,7 @@ const techLogos = [
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
-  { node: <SiGnubash />, title: 'Terminal' }, // Corrected Icon Used
+  { node: <SiGnubash />, title: 'Terminal' }, 
   { node: <SiGit />, title: 'Git' },
 ];
 
@@ -40,7 +50,10 @@ const achievementList = [
     'Attended the World Choir Games in 2018.',
     'Bronze medal at the World Choir Games in 2018.',
     'Received a 100% Academic Bursary for my first year at NWU.',
-];
+].map(text => ({ 
+    node: <DecryptedText text={text} {...DECRYPT_PROPS} />,
+    originalText: text
+}));
 
 
 function App() {
@@ -112,43 +125,40 @@ function App() {
         {/* --- END FAULTY TERMINAL --- */}
         
         <div className="overlay" style={{ position: 'relative', zIndex: 2 }}>
-          <h1>Jan-Paul van den Berg</h1>
-          <p>3rd Year BSc IT Student | Aspiring Programmer</p>
+          <h1><DecryptedText text="Jan-Paul van den Berg" {...DECRYPT_PROPS} /></h1>
+          <p><DecryptedText text="3rd Year BSc IT Student | Aspiring Programmer" {...DECRYPT_PROPS} /></p>
         </div>
       </header>
 
       <nav>
-        <a href="#profile">Profile</a>
-        <a href="#cv">CV</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#achievements">Achievements</a>
-        <a href="#projects">Projects</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#contact">Contact</a>
+        <a href="#profile"><DecryptedText text="Profile" {...DECRYPT_PROPS} /></a>
+        <a href="#cv"><DecryptedText text="CV" {...DECRYPT_PROPS} /></a>
+        <a href="#education"><DecryptedText text="Education" {...DECRYPT_PROPS} /></a>
+        <a href="#skills"><DecryptedText text="Skills" {...DECRYPT_PROPS} /></a>
+        <a href="#experience"><DecryptedText text="Experience" {...DECRYPT_PROPS} /></a>
+        <a href="#achievements"><DecryptedText text="Achievements" {...DECRYPT_PROPS} /></a>
+        <a href="#projects"><DecryptedText text="Projects" {...DECRYPT_PROPS} /></a>
+        <a href="#hobbies"><DecryptedText text="Hobbies" {...DECRYPT_PROPS} /></a>
+        <a href="#contact"><DecryptedText text="Contact" {...DECRYPT_PROPS} /></a>
       </nav>
 
       <section id="profile" className="fade-in-section">
         <h2>Profile</h2>
         <p>
-          I am a passionate and hardworking third-year BSc Information
-          Technology student with a strong interest in programming and
-          problem-solving. I strive to continuously improve my skills and
-          contribute meaningfully to every project I take on.
+          <DecryptedText text="I am a passionate and hardworking third-year BSc Information Technology student with a strong interest in programming and problem-solving. I strive to continuously improve my skills and contribute meaningfully to every project I take on." {...DECRYPT_PROPS} />
         </p>
       </section>
 
       <section id="cv" className="fade-in-section">
         <h2>My CV</h2>
         <p>
-          For a detailed and professionally formatted version of my resume,
+          <DecryptedText text="For a detailed and professionally formatted version of my resume," {...DECRYPT_PROPS} />
           <a
             href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View My CV (Google Drive)
+            <DecryptedText text="View My CV (Google Drive)" {...DECRYPT_PROPS} />
           </a>
         </p>
       </section>
@@ -156,33 +166,33 @@ function App() {
       <section id="education" className="fade-in-section">
         <h2>Education</h2>
         <div className="education">
-          <h3>BSc in Information Technology</h3>
+          <h3><DecryptedText text="BSc in Information Technology" {...DECRYPT_PROPS} /></h3>
           <p>
-            North-West University (2023 - Present) <br />
+            <DecryptedText text="North-West University (2023 - Present)" {...DECRYPT_PROPS} /> <br />
             <br />
             <strong>
-              <u>Notable Modules</u>
+              <DecryptedText text="Notable Modules" {...DECRYPT_PROPS} />
             </strong>
             <br />
             <ul style={{ paddingLeft: '2rem' }}>
-              <li>Object Oriented Programming - 86%</li>
-              <li>Apps And Advanced User Interface Programming – 75%</li>
-              <li>Databases – 71%</li>
-              <li>Artificial Intelligence – 72%</li>
-              <li>Networks – 76%</li>
+              <li><DecryptedText text="Object Oriented Programming - 86%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Apps And Advanced User Interface Programming – 75%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Databases – 71%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Artificial Intelligence – 72%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Networks – 76%" {...DECRYPT_PROPS} /></li>
             </ul>
           </p>
           <br />
-          <h3>Monument High School, Krugersdorp (Graduated 2022)</h3>
+          <h3><DecryptedText text="Monument High School, Krugersdorp (Graduated 2022)" {...DECRYPT_PROPS} /></h3>
           <p>
             <ul style={{ paddingLeft: '2rem' }}>
-              <li>Information Technology - 90%</li>
-              <li>Accounting – 81%</li>
-              <li>CAT – 89%</li>
-              <li>Mathematics – 78%</li>
-              <li>English – 79%</li>
-              <li>Afrikaans – 94%</li>
-              <li>Life Orientation – 87%</li>
+              <li><DecryptedText text="Information Technology - 90%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Accounting – 81%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="CAT – 89%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Mathematics – 78%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="English – 79%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Afrikaans – 94%" {...DECRYPT_PROPS} /></li>
+              <li><DecryptedText text="Life Orientation – 87%" {...DECRYPT_PROPS} /></li>
             </ul>
           </p>
         </div>
@@ -217,31 +227,25 @@ function App() {
         <div className="skills">
           <ul style={{ paddingLeft: '2rem' }}>
             <li>
-              <strong>Programming Languages:</strong> Python, Java, C++, C#,
-              MySQL, HTML
+              <strong><DecryptedText text="Programming Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Python, Java, C++, C#, MySQL, HTML" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Database Systems:</strong> SQLite, MySQL, SQL Server
+              <strong><DecryptedText text="Database Systems:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="SQLite, MySQL, SQL Server" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Networking:</strong> Cisco Packet Tracer, strong
-              understanding of the OSI model
+              <strong><DecryptedText text="Networking:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Cisco Packet Tracer, strong understanding of the OSI model" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Systems Design:</strong> UML, Enhanced ERD (EERD), Crow’s
-              Foot notation
+              <strong><DecryptedText text="Systems Design:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="UML, Enhanced ERD (EERD), Crow’s Foot notation" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Software Tools:</strong> Visual Studio, Oracle SQL
-              Developer, Git
+              <strong><DecryptedText text="Software Tools:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Visual Studio, Oracle SQL Developer, Git" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Algorithms & Problem Solving:</strong> Strong grasp of
-              algorithm design and analysis including sorting, searching, and
-              recursion
+              <strong><DecryptedText text="Algorithms & Problem Solving:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Strong grasp of algorithm design and analysis including sorting, searching, and recursion" {...DECRYPT_PROPS} />
             </li>
             <li>
-              <strong>Languages:</strong> Fluent in English and Afrikaans
+              <strong><DecryptedText text="Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Fluent in English and Afrikaans" {...DECRYPT_PROPS} />
             </li>
           </ul>
         </div>
@@ -251,90 +255,58 @@ function App() {
         <h2>Experience</h2>
 
         <div className="job">
-          <h3>Feb 2025 – July 2025</h3>
+          <h3><DecryptedText text="Feb 2025 – July 2025" {...DECRYPT_PROPS} /></h3>
           <p>
-            <strong>Tutor / Exam Preparation Support</strong> | North-West
-            University | Potchefstroom
+            <strong><DecryptedText text="Tutor / Exam Preparation Support" {...DECRYPT_PROPS} /></strong> <DecryptedText text="| North-West University | Potchefstroom" {...DECRYPT_PROPS} />
           </p>
           <ul>
-            <li>
-              Tutored peers and students in Python, SQL, and database concepts
-            </li>
-            <li>
-              Built interactive exam prep tools covering string manipulation,
-              list operations, and SQLite handling
-            </li>
+            <li><DecryptedText text="Tutored peers and students in Python, SQL, and database concepts" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Built interactive exam prep tools covering string manipulation, list operations, and SQLite handling" {...DECRYPT_PROPS} /></li>
           </ul>
         </div>
 
         <div className="job">
-          <h3>Feb 2025 – Mar 2025</h3>
+          <h3><DecryptedText text="Feb 2025 – Mar 2025" {...DECRYPT_PROPS} /></h3>
           <p>
-            <strong>Computer Literacy Class Teacher</strong> | North-West
-            University | Potchefstroom
+            <strong><DecryptedText text="Computer Literacy Class Teacher" {...DECRYPT_PROPS} /></strong> <DecryptedText text="| North-West University | Potchefstroom" {...DECRYPT_PROPS} />
           </p>
           <ul>
-            <li>
-              Assisted in teaching basic computer skills to adult learners and
-              beginners
-            </li>
-            <li>
-              Guided learners on using Microsoft Word, Excel, Internet
-              browsers, and email
-            </li>
-            <li>
-              Helped improve digital literacy in the community through patient,
-              hands-on support
-            </li>
+            <li><DecryptedText text="Assisted in teaching basic computer skills to adult learners and beginners" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Guided learners on using Microsoft Word, Excel, Internet browsers, and email" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Helped improve digital literacy in the community through patient, hands-on support" {...DECRYPT_PROPS} /></li>
           </ul>
         </div>
 
         <div className="job">
-          <h3>July 2025</h3>
+          <h3><DecryptedText text="July 2025" {...DECRYPT_PROPS} /></h3>
           <p>
-            <strong>House Sitter</strong> | Hennie Pieters | Krugersdorp
+            <strong><DecryptedText text="House Sitter" {...DECRYPT_PROPS} /></strong> <DecryptedText text="| Hennie Pieters | Krugersdorp" {...DECRYPT_PROPS} />
           </p>
           <ul>
-            <li>
-              Entrusted with overseeing and maintaining the household for the
-              full month
-            </li>
-            <li>
-              Ensured the property’s safety, upkeep, and cleanliness during the
-              owner's absence
-            </li>
+            <li><DecryptedText text="Entrusted with overseeing and maintaining the household for the full month" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Ensured the property’s safety, upkeep, and cleanliness during the owner's absence" {...DECRYPT_PROPS} /></li>
           </ul>
         </div>
 
         <div className="job">
-          <h3>Jan 2024</h3>
+          <h3><DecryptedText text="Jan 2024" {...DECRYPT_PROPS} /></h3>
           <p>
-            <strong>Waiter</strong> | Ana Paula’s Coffee Shop | Krugersdorp
+            <strong><DecryptedText text="Waiter" {...DECRYPT_PROPS} /></strong> <DecryptedText text="| Ana Paula’s Coffee Shop | Krugersdorp" {...DECRYPT_PROPS} />
           </p>
           <ul>
-            <li>
-              Provided friendly and efficient table service to customers
-            </li>
-            <li>
-              Assisted with daily operations to ensure a smooth-running coffee
-              shop environment
-            </li>
+            <li><DecryptedText text="Provided friendly and efficient table service to customers" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Assisted with daily operations to ensure a smooth-running coffee shop environment" {...DECRYPT_PROPS} /></li>
           </ul>
         </div>
 
         <div className="job">
-          <h3>Dec 2023</h3>
+          <h3><DecryptedText text="Dec 2023" {...DECRYPT_PROPS} /></h3>
           <p>
-            <strong>House Sitter</strong> | Wandi Koen | Krugersdorp
+            <strong><DecryptedText text="House Sitter" {...DECRYPT_PROPS} /></strong> <DecryptedText text="| Wandi Koen | Krugersdorp" {...DECRYPT_PROPS} />
           </p>
           <ul>
-            <li>
-              Responsible for the household’s upkeep and security during a
-              month-long absence
-            </li>
-            <li>
-              Maintained trust and reliability through responsible caretaking
-            </li>
+            <li><DecryptedText text="Responsible for the household’s upkeep and security during a month-long absence" {...DECRYPT_PROPS} /></li>
+            <li><DecryptedText text="Maintained trust and reliability through responsible caretaking" {...DECRYPT_PROPS} /></li>
           </ul>
         </div>
       </section>
@@ -345,7 +317,7 @@ function App() {
         {/* --- ANIMATED LIST MOVED HERE (Enabled) --- */}
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
           <AnimatedList 
-            items={achievementList} 
+            items={achievementList.map(item => item.node)} 
             displayScrollbar={false}
             className='animated-list-container' 
           />
@@ -358,7 +330,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Arcademia Game Jam Announcement
+              <DecryptedText text="View Arcademia Game Jam Announcement" {...DECRYPT_PROPS} />
             </a>
           </p>
         </div>
@@ -374,10 +346,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Minesweeper Game
+                <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
               </a>{' '}
-              – A classic tile-based Minesweeper game developed in Java with a
-              clean GUI and recursive reveal logic.
+              – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
             </li>
             <li>
               <a
@@ -385,10 +356,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Snake Game
+                <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
               </a>{' '}
-              – A simple and responsive version of Snake built in Java using
-              key event handling and grid movement.
+              – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPT_PROPS} />
             </li>
             <li>
               <a
@@ -396,10 +366,9 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instant Messaging App
+                <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
               </a>{' '}
-              – A Python-based chat application that supports real-time
-              communication over the internet using sockets.
+              – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
             </li>
           </ul>
         </div>
@@ -408,27 +377,24 @@ function App() {
       <section id="hobbies" className="fade-in-section">
         <h2>Hobbies</h2>
         <ul style={{ paddingLeft: '2rem' }}>
-          <li>Guitar</li>
-          <li>Chess</li>
-          <li>Video Games</li>
-          <li>Coding</li>
-          <li>Reading</li>
-          <li>Rock Climbing</li>
-          <li>
-            Serenade (A capella group wherein we came top 5 in our local
-            competition at the NWU)
-          </li>
+          <li><DecryptedText text="Guitar" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Chess" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Video Games" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Coding" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Reading" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Rock Climbing" {...DECRYPT_PROPS} /></li>
+          <li><DecryptedText text="Serenade (A capella group wherein we came top 5 in our local competition at the NWU)" {...DECRYPT_PROPS} /></li>
         </ul>
       </section>
 
       <section id="contact" className="fade-in-section">
         <h2>Contact</h2>
-        <p> 065-918-0206</p>
+        <p> <DecryptedText text="065-918-0206" {...DECRYPT_PROPS} /></p>
         <p>
           <a
             href="mailto:janpaulvdberg@gmail.com"
           >
-            janpaulvdberg@gmail.com
+            <DecryptedText text="janpaulvdberg@gmail.com" {...DECRYPT_PROPS} />
           </a>
         </p>
         <p>
@@ -437,7 +403,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn Profile
+            <DecryptedText text="LinkedIn Profile" {...DECRYPT_PROPS} />
           </a>
         </p>
         <p>
@@ -446,7 +412,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            My GitHub Profile
+            <DecryptedText text="My GitHub Profile" {...DECRYPT_PROPS} />
           </a>
         </p>
         <p>
@@ -455,10 +421,18 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View My CV
+            <DecryptedText text="View My CV" {...DECRYPT_PROPS} />
           </a>
         </p>
       </section>
+
+      <div style={{ textAlign: 'center', padding: '2rem' }}>
+        <a
+          href="#top"
+        >
+          <DecryptedText text="↑ Back to Top" {...DECRYPT_PROPS} />
+        </a>
+      </div>
 
       <footer>
         {/* --- INTERACTIVE CONSOLE FOOTER --- */}
@@ -469,11 +443,11 @@ function App() {
             {/* FIX: Use a command that is stable and short */}
             <span className='typing-line' style={{
                  animation: 'typing 4s steps(35, end) infinite, blink-caret 0.75s step-end infinite'
-            }}>run systems_check --verbose . . . </span>
+            }}><DecryptedText text="run systems_check --verbose . . ." {...DECRYPT_PROPS} /></span>
         </div>
         {/* --- END CONSOLE --- */}
         <div className='footer-copyright'>
-            <p>&copy; 2025 Jan-Paul van den Berg. All rights reserved.</p>
+            <p><DecryptedText text="© 2025 Jan-Paul van den Berg. All rights reserved." {...DECRYPT_PROPS} /></p>
         </div>
       </footer>
     </>
