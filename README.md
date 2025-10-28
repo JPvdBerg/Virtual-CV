@@ -1,42 +1,16 @@
-# Jan-Paul van den Berg - Virtual CV Website
+# React + Vite
 
-Welcome to my virtual CV! This is a personal project that showcases my academic background, work experience, achievements, and skills using a modern, responsive website.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Description
+Currently, two official plugins are available:
 
-This project is a fully responsive, one-page HTML and CSS website designed to represent my curriculum vitae in an interactive and professional format. It is intended for both academic use and professional presentation (e.g., for job applications, LinkedIn, etc.).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Contents
+## React Compiler
 
-- `index.html`: Main HTML file containing the content of the virtual CV.
-- `favicon.ico`: Custom icon for the website (linked via GitHub).
-- `README.md`: Project documentation (this file).
-- External fonts and icons are loaded via Google Fonts and GitHub-hosted favicon.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Live Demo
+## Expanding the ESLint configuration
 
-You can view the live version of the website here:  
-[https://jpvdberg.github.io/Virtual-CV](https://jpvdberg.github.io/Virtual-CV)
-
-## Features
-
-- Responsive layout that works across devices
-- Animated fade-in sections using JavaScript and CSS transitions
-- Organized sections: Profile, Education, Skills, Experience, Projects, Achievements, Hobbies, Contact
-- Links to downloadable resume, LinkedIn, and GitHub projects
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript (vanilla)
-- Google Fonts
-- GitHub Pages (for hosting)
-
-##  Setup Instructions
-
-To run this website locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/JPvdBerg/Virtual-CV.git
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

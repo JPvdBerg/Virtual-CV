@@ -1,0 +1,321 @@
+/* Custom Properties for Hacker Green Theme */
+:root {
+  --primary-bg-color: #000000;    /* Changed to pure black for better contrast */
+  --hacker-green: #00ff00;        /* Bright hacker green */
+  --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
+  --text-color: #b0b0b0;          /* Lighter gray for general text */
+  --highlight-text-color: #00ff00; /* Direct green for special links/text */
+}
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  font-family: 'VT323', monospace; /* Applying Hackerman font globally */
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  font-size: 1.1em;
+  position: relative; 
+}
+
+a {
+  color: var(--highlight-text-color); 
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--hacker-green-light);
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden; 
+  color: var(--hacker-green); 
+  padding: 20px;
+  box-sizing: border-box; 
+}
+
+header h1 {
+  font-size: 3.5em; 
+  margin-bottom: 0.2em;
+  text-shadow: 0 0 8px var(--hacker-green); 
+}
+
+header p {
+  font-size: 1.5em;
+  text-shadow: 0 0 5px var(--hacker-green);
+}
+
+.overlay {
+  position: relative;
+  z-index: 2; 
+  /* --- FIX: MAKE HEADER TEXT READABLE --- */
+  background-color: rgba(0, 0, 0, 0.95); /* Solid black background for header text box */
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: 1px solid var(--hacker-green);
+  /* --- END FIX --- */
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.95); 
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2); 
+  z-index: 1000;
+  border-bottom: 1px solid var(--hacker-green);
+}
+
+nav a {
+  color: var(--hacker-green);
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  font-size: 1.1em; 
+}
+
+nav a:hover {
+  background-color: rgba(0, 255, 0, 0.1); 
+  color: var(--hacker-green-light);
+  text-shadow: 0 0 5px var(--hacker-green-light);
+  text-decoration: none; 
+}
+
+/* Sections */
+section {
+  padding: 80px 5%;
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative; 
+  
+  /* --- FIX: REMOVE SEAMS AND ADD CONTRAST BOX --- */
+  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent black box for contrast */
+  border-radius: 0; /* Remove rounding */
+  box-shadow: none; /* Remove box shadow */
+  border-bottom: 1px dashed rgba(0, 255, 0, 0.1); /* Keep the faint dashed divider */
+  /* --- END FIX --- */
+}
+
+/* Ensure bottom padding is slightly larger to separate sections visually */
+section:last-of-type {
+  border-bottom: none;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: var(--hacker-green);
+  margin-bottom: 1em;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); 
+}
+
+h3 {
+  font-size: 1.8em;
+  color: var(--hacker-green-light);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Lists */
+ul {
+  list-style-type: none; 
+  padding-left: 0; 
+}
+
+ul li {
+  position: relative;
+  margin-bottom: 0.8em;
+  padding-left: 1.5em; 
+}
+
+ul li::before {
+  content: '>'; 
+  color: var(--hacker-green);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+strong {
+  color: var(--hacker-green); 
+}
+
+/* Education specific styles */
+.education ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.education ul li::before {
+  content: '└'; 
+  color: var(--hacker-green-light);
+}
+
+/* Job experience specific */
+.job {
+  margin-bottom: 3em;
+  border-left: 2px solid var(--hacker-green);
+  padding-left: 1.5em;
+}
+
+.job h3 {
+  margin-top: 0;
+  color: var(--hacker-green);
+  font-size: 1.5em;
+}
+
+.job p {
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+}
+
+.job ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.job ul li::before {
+  content: '-';
+  color: var(--hacker-green-light);
+}
+
+/* Fade-in effect */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--text-color);
+  border-top: 1px solid var(--hacker-green);
+  font-size: 0.9em;
+}
+
+/* Scroll to top link */
+div a[href="#top"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--hacker-green);
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-size: 1.1em;
+}
+
+div a[href="#top"]:hover {
+  background-color: var(--hacker-green);
+  color: var(--primary-bg-color);
+  text-shadow: none;
+  transform: translateY(-3px);
+  text-decoration: none;
+}
+
+/* --- Glitch Background CSS --- */
+#full-screen-glitch {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  z-index: -1; 
+  opacity: 0.05; /* Kept very subtle */
+  pointer-events: none; 
+}
+
+/* --- AnimatedList specific fixes --- */
+
+/* Fix: The list itself must have a transparent background to see the main contrast box */
+.animated-list-container {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Fix: List item base style - making it transparent */
+.animated-list-container .item {
+  background-color: transparent !important; 
+  border: 1px solid rgba(0, 255, 0, 0.2) !important; 
+  color: var(--text-color) !important;
+  transition: border-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* FIX: Prevents text/selection bar bug */
+}
+
+/* Fix: Selection state style - prevents the black bar glitch */
+.animated-list-container .item.selected {
+  background-color: rgba(0, 255, 0, 0.1) !important; 
+  border-color: var(--hacker-green) !important;
+  color: var(--hacker-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); 
+  transform: none; /* Simplify animation on select */
+}
+
+/* Fix: List item text color to ensure it shows up */
+.animated-list-container .item-text {
+  color: inherit !important; 
+}
+
+/* Fix: AnimatedList scrollbar and gradients in App.css */
+.scroll-list::-webkit-scrollbar-track {
+    background: var(--primary-bg-color) !important; 
+}
+
+.top-gradient, .bottom-gradient {
+    background: linear-gradient(to bottom, var(--primary-bg-color), transparent) !important; 
+    background: linear-gradient(to top, var(--primary-bg-color), transparent) !important; 
+}
+
+/* --- MOBILE READABILITY AND PERFORMANCE FIXES --- */
+@media (max-width: 768px) {
+    
+    /* 1. Disable Faulty Terminal (Heavy GPU Effect) */
+    header div:nth-child(2) { /* Targets the specific div containing FaultyTerminal */
+        display: none !important;
+    }
+    
+    /* 2. Disable Letter Glitch (Background Animation) */
+    #full-screen-glitch {
+        display: none !important;
+    }
+
+    /* 3. Improve contrast when the glitch background is gone */
+    section {
+        /* Since the faint glitch is gone, make the content box slightly darker for full black background */
+        background-color: rgba(0, 0, 0, 0.95) !important;
+    }
+
+    /* 4. Fix potential header alignment on tiny screens */
+    header h1 {
+        font-size: 2.5em; 
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+}

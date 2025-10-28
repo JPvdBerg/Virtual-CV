@@ -1,0 +1,41 @@
+/* LetterGlitch.css */
+.letter-glitch-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'VT323', monospace; /* Ensure glitch text also uses Hackerman font */
+  color: #00ff00; /* Hacker green glitch text */
+}
+
+.letter-glitch-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Optional: Vignette effect for glitch (if used in JSX) */
+.glitch-vignette-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 150px rgba(0, 255, 0, 0.3); /* Green inner glow */
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glitch-vignette-outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 100px rgba(0, 255, 0, 0.2); /* Green outer glow */
+  pointer-events: none;
+  z-index: 1;
+}
