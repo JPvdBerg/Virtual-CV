@@ -43,15 +43,20 @@ section {
     font-size: 1em; 
 }
 
+/* Find this block in src/App.css (around line 34) and update it: */
+
 a {
   color: var(--highlight-text-color); 
   text-decoration: none;
   transition: color 0.3s ease-in-out;
+  /* FIX: Ensure the link also uses the custom cursor */
+  cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair; 
 }
 
 a:hover {
   color: var(--hacker-green-light);
-  text-decoration: underline;
+  /* FIX: Add !important to force the underline over any browser defaults/conflicts */
+  text-decoration: underline !important; 
 }
 
 /* Header - Keep Hacker Font */
