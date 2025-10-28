@@ -16,9 +16,9 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  /* IMPROVED VERTICAL RHYTHM */
+  /* FINAL LINE HEIGHT - Improved vertical spacing */
   line-height: 1.4; 
-  /* FINAL FONT SIZE BOOST */
+  /* FINAL FONT SIZE BOOST - Max readability */
   font-size: 1.8em; 
   position: relative; 
   /* --- CUSTOM HACKER CURSOR --- */
@@ -87,7 +87,7 @@ nav {
 nav a {
   color: var(--hacker-green);
   text-decoration: none;
-  /* FIX: Navigation overflow fix - Reduced padding */
+  /* FIX: Navigation overflow fix */
   padding: 10px 8px; 
   margin: 0 5px;
   border-radius: 5px;
@@ -109,7 +109,6 @@ section {
   margin: 0 auto;
   max-width: 900px;
   position: relative; 
-  /* Solid contrast box for readability */
   background-color: rgba(0, 0, 0, 0.85); 
   border-radius: 0; 
   box-shadow: none; 
@@ -153,7 +152,7 @@ ul li::before {
   color: var(--hacker-green);
   position: absolute;
   left: 0;
-  /* Aligns bullet point perfectly */
+  /* FINAL ALIGNMENT FIX */
   top: 0; 
 }
 
@@ -170,7 +169,7 @@ strong {
 .education ul li::before {
   content: '└'; 
   color: var(--hacker-green-light);
-  /* Aligns corner bullet perfectly */
+  /* FINAL ALIGNMENT FIX */
   top: 0.1em; 
 }
 
@@ -214,15 +213,52 @@ strong {
   transform: translateY(0);
 }
 
-/* Footer */
+/* Footer and Console */
 footer {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: var(--text-color);
+  /* Inherits text styles from console container below */
+  padding: 0; 
+  background-color: transparent;
   border-top: 1px solid var(--hacker-green);
-  font-size: 1.1em; 
+  font-size: 0.9em;
+  text-align: left;
 }
+
+.footer-console {
+    /* Console background */
+    background-color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-top: 1px dashed var(--hacker-green);
+    color: var(--hacker-green);
+    font-size: 1.1em;
+}
+
+.typing-line {
+    /* Style for the typing effect text */
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 6s steps(60, end) infinite,
+               blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--hacker-green); }
+}
+
+.footer-copyright {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0a0a0a;
+    color: var(--text-color);
+    font-size: 0.9em;
+}
+
 
 /* Scroll to top link */
 div a[href="#top"] {
@@ -233,6 +269,7 @@ div a[href="#top"] {
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.3s ease;
+  /* FINAL SCROLL LINK FONT SIZE */
   font-size: 1.4em; 
 }
 

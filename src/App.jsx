@@ -469,7 +469,16 @@ function App() {
       </div>
 
       <footer>
-        <p>&copy; 2025 Jan-Paul van den Berg. All rights reserved.</p>
+        {/* --- INTERACTIVE CONSOLE FOOTER --- */}
+        <div className='footer-console'>
+            <span style={{color: 'var(--hacker-green-light)'}}>[jpvdberg@virtualcv ~]$ </span>
+            <span className='typing-line'>_</span>
+            <span className='typing-line'>initiate systems_protocol 'showcase-skills' --run</span>
+        </div>
+        {/* --- END CONSOLE --- */}
+        <div className='footer-copyright'>
+            <p>&copy; 2025 Jan-Paul van den Berg. All rights reserved.</p>
+        </div>
       </footer>
     </>
   );
