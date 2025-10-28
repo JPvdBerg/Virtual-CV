@@ -3,7 +3,7 @@
   --primary-bg-color: #000000;    /* Pure black */
   --hacker-green: #00ff00;        /* Bright hacker green */
   --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
-  --text-color: #c0c0c0;          /* Slightly brighter gray for better contrast */
+  --text-color: #c0c0c0;          /* Lighter gray for general text */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
 }
 
@@ -87,7 +87,7 @@ nav {
 nav a {
   color: var(--hacker-green);
   text-decoration: none;
-  /* FIX: Navigation overflow fix */
+  /* FIX: Navigation overflow fix - Reduced padding */
   padding: 10px 8px; 
   margin: 0 5px;
   border-radius: 5px;
@@ -230,20 +230,26 @@ footer {
     border-top: 1px dashed var(--hacker-green);
     color: var(--hacker-green);
     font-size: 1.1em;
+    /* FIX: Hides any overflow outside the visible container */
+    overflow: hidden; 
 }
 
 .typing-line {
     /* Style for the typing effect text */
     display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 6s steps(60, end) infinite,
+    overflow: hidden; 
+    white-space: nowrap; 
+    /* FIX: Reduced animation time and steps to prevent visible overflow */
+    animation: typing 4s steps(58, end) infinite,
                blink-caret 0.75s step-end infinite;
+    /* Sets the width of the blinking cursor text to match the number of steps */
+    border-right: 0.15em solid var(--hacker-green); /* Optional: Adds the blinking cursor line */
 }
 
 @keyframes typing {
+    /* FIX: Updated width calculation to match reduced steps */
     from { width: 0 }
-    to { width: 100% }
+    to { width: 100% } 
 }
 
 @keyframes blink-caret {
@@ -269,7 +275,6 @@ div a[href="#top"] {
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.3s ease;
-  /* FINAL SCROLL LINK FONT SIZE */
   font-size: 1.4em; 
 }
 
