@@ -5,13 +5,18 @@
   --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
   --text-color: #c0c0c0;          /* Lighter gray for general text */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
+  /* Define the professional font stack */
+  --dev-font: Consolas, "Courier New", monospace;
+  --hacker-font: 'VT323', monospace;
 }
 
 /* Global Styles */
+/* NOTE: VT323 is still imported in index.html for headers/footer */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-  font-family: 'VT323', monospace; 
+  /* Set the default body font to the readable developer font */
+  font-family: var(--dev-font); 
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
@@ -19,10 +24,15 @@ body {
   /* FINAL LINE HEIGHT - Improved vertical spacing */
   line-height: 1.4; 
   /* FINAL FONT SIZE BOOST - Max readability */
-  font-size: 1.8em; 
+  font-size: 1.1em; /* Reduced base size slightly for Consolas, which is denser */
   position: relative; 
   /* --- CUSTOM HACKER CURSOR --- */
   cursor: crosshair; 
+}
+
+/* Reset base font size for large content sections */
+section {
+    font-size: 1em; /* Ensure all child elements start from 1.1em defined on body */
 }
 
 a {
@@ -36,7 +46,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header */
+/* Header - Keep Hacker Font */
 header {
   min-height: 100vh;
   display: flex;
@@ -49,6 +59,7 @@ header {
   color: var(--hacker-green); 
   padding: 20px;
   box-sizing: border-box; 
+  font-family: var(--hacker-font); /* Override for header font */
 }
 
 header h1 {
@@ -72,7 +83,7 @@ header p {
   border: 1px solid var(--hacker-green);
 }
 
-/* Navigation */
+/* Navigation - Keep Hacker Font */
 nav {
   position: sticky;
   top: 0;
@@ -82,6 +93,7 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 255, 0, 0.2); 
   z-index: 1000;
   border-bottom: 1px solid var(--hacker-green);
+  font-family: var(--hacker-font); /* Override for nav font */
 }
 
 nav a {
@@ -93,7 +105,7 @@ nav a {
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
   /* FINAL NAV FONT SIZE */
-  font-size: 1.5em; 
+  font-size: 1.6em; 
 }
 
 nav a:hover {
@@ -119,12 +131,14 @@ section:last-of-type {
   border-bottom: none;
 }
 
+/* Headings - Keep Hacker Font */
 h2 {
   font-size: 2.5em;
   color: var(--hacker-green);
   margin-bottom: 1em;
   text-align: center;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); 
+  font-family: var(--hacker-font);
 }
 
 h3 {
@@ -132,6 +146,7 @@ h3 {
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+  font-family: var(--hacker-font);
 }
 
 /* Lists */
@@ -184,6 +199,7 @@ strong {
   margin-top: 0;
   color: var(--hacker-green);
   font-size: 1.5em;
+  font-family: var(--hacker-font); /* Keep Job Title in hacker font */
 }
 
 .job p {
@@ -213,7 +229,7 @@ strong {
   transform: translateY(0);
 }
 
-/* Footer and Console */
+/* Footer and Console - Keep Hacker Font */
 footer {
   /* Inherits text styles from console container below */
   padding: 0; 
@@ -221,6 +237,7 @@ footer {
   border-top: 1px solid var(--hacker-green);
   font-size: 0.9em;
   text-align: left;
+  font-family: var(--hacker-font); /* Keep footer/console in hacker font */
 }
 
 .footer-console {
@@ -243,7 +260,7 @@ footer {
     animation: typing 4s steps(58, end) infinite,
                blink-caret 0.75s step-end infinite;
     /* Sets the width of the blinking cursor text to match the number of steps */
-    border-right: 0.15em solid var(--hacker-green); /* Optional: Adds the blinking cursor line */
+    border-right: 0.15em solid var(--hacker-green); /* Adds the blinking cursor line */
 }
 
 @keyframes typing {
@@ -276,6 +293,7 @@ div a[href="#top"] {
   margin-top: 20px;
   transition: all 0.3s ease;
   font-size: 1.4em; 
+  font-family: var(--hacker-font); /* Keep scroll link in hacker font */
 }
 
 div a[href="#top"]:hover {
@@ -312,6 +330,7 @@ div a[href="#top"]:hover {
   color: var(--text-color) !important;
   transition: border-color 0.3s ease, color 0.3s ease;
   overflow: hidden; 
+  font-family: var(--dev-font) !important; /* Ensure list items use the readable font */
 }
 
 /* Fix: Selection state style - setting selected to transparent glow */
