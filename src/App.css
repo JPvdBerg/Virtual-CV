@@ -368,17 +368,18 @@ div a[href="#top"]:hover {
     }
     
     /* 2. Improve Nav Readability and Flow */
-    nav {
+   nav {
         padding: 10px 0;
         flex-direction: column; /* Stack nav links vertically */
     }
 
     nav a {
-        /* Increase vertical padding and use full width */
-        padding: 5px 0; 
+        /* INCREASED VERTICAL PADDING for easier tapping */
+        padding: 8px 0; 
         margin: 5px auto;
         font-size: 1.3em;
         width: 90%;
+        display: block; /* Ensures links take up full width for padding to apply */
     }
 
     /* 3. Improve contrast when the glitch background is gone */
