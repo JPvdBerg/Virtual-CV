@@ -16,8 +16,9 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  line-height: 1.2; /* Tightened line height for terminal look */
-  /* --- FINAL FONT SIZE BOOST --- */
+  /* FINAL LINE HEIGHT */
+  line-height: 1.15; 
+  /* FINAL FONT SIZE BOOST */
   font-size: 1.8em; 
   position: relative; 
 }
@@ -84,7 +85,8 @@ nav {
 nav a {
   color: var(--hacker-green);
   text-decoration: none;
-  padding: 10px 20px;
+  /* FIX: Navigation overflow fix */
+  padding: 10px 12px; 
   margin: 0 5px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
@@ -138,9 +140,9 @@ ul {
 
 ul li {
   position: relative;
-  /* FINAL LIST ITEM SPACING */
-  margin-bottom: 1em; 
-  padding-left: 1.8em; 
+  /* FINAL LIST ITEM SPACING AND ALIGNMENT */
+  margin-bottom: 1.2em; 
+  padding-left: 2em; 
 }
 
 ul li::before {
@@ -148,7 +150,8 @@ ul li::before {
   color: var(--hacker-green);
   position: absolute;
   left: 0;
-  top: 0;
+  /* FINAL ALIGNMENT FIX */
+  top: 0; 
 }
 
 strong {
@@ -164,6 +167,8 @@ strong {
 .education ul li::before {
   content: '└'; 
   color: var(--hacker-green-light);
+  /* FINAL ALIGNMENT FIX */
+  top: 0.1em; 
 }
 
 /* Job experience specific */

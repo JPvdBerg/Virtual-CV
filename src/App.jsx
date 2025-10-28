@@ -8,13 +8,13 @@ import LetterGlitch from './components/LetterGlitch.jsx';
 import FaultyTerminal from './components/FaultyTerminal.jsx'; 
 import LogoLoop from './components/LogoLoop.jsx';
 
-// --- Import icons for the LogoLoop demo (New Terminal Icon Added) ---
+// --- Import icons for the LogoLoop demo ---
 import {
   SiReact,
   SiPython,
   SiMysql,
   SiGit,
-  SiGnubash // <-- NEW ICON ADDED
+  SiGnubash // Corrected Terminal Icon
 } from 'react-icons/si';
 
 // --- Setup for LogoLoop ---
@@ -25,7 +25,7 @@ const techLogos = [
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
-  { node: <SiGnubash />, title: 'Terminal' }, // <-- NEW ICON USED
+  { node: <SiGnubash />, title: 'Terminal' }, // Corrected Icon Used
   { node: <SiGit />, title: 'Git' },
 ];
 
