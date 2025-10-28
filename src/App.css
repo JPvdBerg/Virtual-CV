@@ -6,40 +6,33 @@
   --text-color: #c0c0c0;          /* Lighter gray for general text */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
   /* --- MONOFONTO HIERARCHY --- */
-  /* Monofonto is the aesthetic font; Courier New is the base readable font */
-  --dev-font: "Courier New", monospace; 
-  --hacker-font: Monofonto, monospace;
+  --dev-font: "Courier New", monospace; /* Readable body font */
+  --hacker-font: Monofonto, monospace; /* Fallout Pip-Boy font */
 }
 
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-/* --- CUSTOM CURSOR IMPLEMENTATION --- */
-/* Base cursor applies to the whole body */
 body {
-  /* Use the custom .cur file first, with crosshair as a fallback */
-  cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
+  /* Set body font to the developer font stack */
+  font-family: var(--dev-font); 
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
+  /* FINAL LINE HEIGHT */
   line-height: 1.4; 
-  font-size: 1.1em; 
+  /* REDUCED BASE FONT SIZE */
+  font-size: 1.0em; 
   position: relative; 
+  cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
 }
 
-/* Override the default pointer for all interactive elements */
-a, button, input, select, .animated-list-container .item {
-    cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair !important;
-}
-/* --- END CURSOR IMPLEMENTATION --- */
-
-/* --- FONT HIERARCHY FOR READABILITY --- */
-
-/* Standardized readable content */
+/* --- FORCE FONT FOR ALL READABLE CONTENT --- */
 p, ul, ol, li, .animated-list-container .item-text {
     font-family: var(--dev-font) !important;
-    font-size: 1.2em; /* Standardized size for all readable content */
+    /* FINAL STANDARDIZED SIZE FOR ALL TEXT CONTENT */
+    font-size: 1.15em; 
 }
 
 /* Reset base font size for large content sections */
@@ -88,7 +81,6 @@ header p {
 .overlay {
   position: relative;
   z-index: 2; 
-  /* Fix: Solid black background for header text box */
   background-color: rgba(0, 0, 0, 0.95); 
   padding: 15px 30px;
   border-radius: 5px;
@@ -155,11 +147,12 @@ h2 {
 
 /* H3 - Use Developer Font (for module/job headings) */
 h3 {
-  font-size: 1.4em;
+  /* REDUCED SIZE FOR HIERARCHY */
+  font-size: 1.15em; 
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  font-family: var(--dev-font); /* Changed to dev font */
+  font-family: var(--dev-font); 
 }
 
 /* Lists */
@@ -173,9 +166,8 @@ ul li {
   /* FINAL LIST ITEM SPACING AND ALIGNMENT */
   margin-bottom: 1.2em; 
   padding-left: 2em; 
-  /* FINAL FONT: Ensured list text uses readable font */
   font-family: var(--dev-font); 
-  font-size: 1em; /* Uses the 1.2em standardized size */
+  font-size: 1em; /* Inherits 1.15em from general p, li block */
 }
 
 ul li::before {
@@ -269,9 +261,6 @@ footer {
     /* Style for the typing effect text */
     display: inline-block;
     overflow: hidden; 
-    white-space: nowrap; 
-    
-    /* We rely on the App.jsx inline style to set the animation steps/length. */
     
     /* Sets the width of the blinking cursor text to match the number of steps */
     border-right: 0.15em solid var(--hacker-green); 
