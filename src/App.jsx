@@ -14,7 +14,7 @@ import {
   SiPython,
   SiMysql,
   SiGit,
-  SiGnuTerminal // <-- NEW ICON ADDED
+  SiGnubash // <-- NEW ICON ADDED
 } from 'react-icons/si';
 
 // --- Setup for LogoLoop ---
@@ -25,7 +25,7 @@ const techLogos = [
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
-  { node: <SiGnuTerminal />, title: 'Terminal' }, // <-- NEW ICON USED
+  { node: <SiGnubash />, title: 'Terminal' }, // <-- NEW ICON USED
   { node: <SiGit />, title: 'Git' },
 ];
 
