@@ -11,29 +11,30 @@
 }
 
 /* Global Styles */
-/* NOTE: VT323 is still imported in index.html for headers/footer */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-  /* Set the default body font to the readable developer font */
-  font-family: var(--dev-font); 
+  /* Keep default font fallback, but remove font-family setting */
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
   /* FINAL LINE HEIGHT - Improved vertical spacing */
   line-height: 1.4; 
-  /* FINAL FONT SIZE BOOST - Max readability */
-  font-size: 1.1em; /* Reduced base size slightly for Consolas, which is denser */
+  /* Base font size must be high for the dev font to look good */
+  font-size: 1.1em; 
   position: relative; 
   /* --- CUSTOM HACKER CURSOR --- */
   cursor: crosshair; 
 }
 
-/* Reset base font size for large content sections */
-section {
-    font-size: 1em; /* Ensure all child elements start from 1.1em defined on body */
+/* --- ADDED: FORCE FONT FOR READABLE CONTENT --- */
+p, ul, ol, li, .animated-list-container .item-text {
+    font-family: var(--dev-font) !important;
+    font-size: 1.2em; /* Slightly larger size for readable content */
 }
+/* --- END ADDED --- */
+
 
 a {
   color: var(--highlight-text-color); 
@@ -160,6 +161,9 @@ ul li {
   /* FINAL LIST ITEM SPACING AND ALIGNMENT */
   margin-bottom: 1.2em; 
   padding-left: 2em; 
+  /* FINAL FONT: Ensured list text uses readable font */
+  font-family: var(--dev-font); 
+  font-size: 1.2em;
 }
 
 ul li::before {
@@ -167,7 +171,6 @@ ul li::before {
   color: var(--hacker-green);
   position: absolute;
   left: 0;
-  /* FINAL ALIGNMENT FIX */
   top: 0; 
 }
 
@@ -184,7 +187,6 @@ strong {
 .education ul li::before {
   content: '└'; 
   color: var(--hacker-green-light);
-  /* FINAL ALIGNMENT FIX */
   top: 0.1em; 
 }
 
@@ -205,6 +207,7 @@ strong {
 .job p {
   margin-bottom: 0.5em;
   color: var(--text-color);
+  font-family: var(--dev-font); /* Ensure paragraph under job uses dev font */
 }
 
 .job ul {
@@ -231,7 +234,6 @@ strong {
 
 /* Footer and Console - Keep Hacker Font */
 footer {
-  /* Inherits text styles from console container below */
   padding: 0; 
   background-color: transparent;
   border-top: 1px solid var(--hacker-green);
@@ -260,7 +262,7 @@ footer {
     animation: typing 4s steps(58, end) infinite,
                blink-caret 0.75s step-end infinite;
     /* Sets the width of the blinking cursor text to match the number of steps */
-    border-right: 0.15em solid var(--hacker-green); /* Adds the blinking cursor line */
+    border-right: 0.15em solid var(--hacker-green); 
 }
 
 @keyframes typing {
