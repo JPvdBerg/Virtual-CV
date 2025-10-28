@@ -5,18 +5,20 @@
   --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
   --text-color: #c0c0c0;          /* Lighter gray for general text */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
-  /* --- NEW MONOFONTO HIERARCHY --- */
-  --dev-font: "Courier New", monospace; /* Readable body font */
-  --hacker-font: Monofonto, monospace; /* Fallout Pip-Boy font */
+  /* --- MONOFONTO HIERARCHY --- */
+  /* Monofonto is the aesthetic font; Courier New is the base readable font */
+  --dev-font: "Courier New", monospace; 
+  --hacker-font: Monofonto, monospace;
 }
 
 /* Global Styles */
-/* We rely on the font being installed or loaded via a standard link/system font */
-/* If Monofonto isn't available, the browser will use monospace */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* --- CUSTOM CURSOR IMPLEMENTATION --- */
+/* Base cursor applies to the whole body */
 body {
-  /* Set body font to Monofonto for the overall theme, relying on p, li rules for readability */
-  font-family: var(--dev-font); 
+  /* Use the custom .cur file first, with crosshair as a fallback */
+  cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
@@ -24,15 +26,21 @@ body {
   line-height: 1.4; 
   font-size: 1.1em; 
   position: relative; 
-  cursor: crosshair; 
 }
 
-/* --- ADDED: FORCE FONT FOR READABLE CONTENT (Consolas replacement) --- */
+/* Override the default pointer for all interactive elements */
+a, button, input, select, .animated-list-container .item {
+    cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair !important;
+}
+/* --- END CURSOR IMPLEMENTATION --- */
+
+/* --- FONT HIERARCHY FOR READABILITY --- */
+
+/* Standardized readable content */
 p, ul, ol, li, .animated-list-container .item-text {
     font-family: var(--dev-font) !important;
     font-size: 1.2em; /* Standardized size for all readable content */
 }
-/* --- END ADDED --- */
 
 /* Reset base font size for large content sections */
 section {
@@ -151,7 +159,7 @@ h3 {
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  font-family: var(--dev-font); 
+  font-family: var(--dev-font); /* Changed to dev font */
 }
 
 /* Lists */
@@ -167,7 +175,7 @@ ul li {
   padding-left: 2em; 
   /* FINAL FONT: Ensured list text uses readable font */
   font-family: var(--dev-font); 
-  font-size: 1em; 
+  font-size: 1em; /* Uses the 1.2em standardized size */
 }
 
 ul li::before {
@@ -261,6 +269,9 @@ footer {
     /* Style for the typing effect text */
     display: inline-block;
     overflow: hidden; 
+    white-space: nowrap; 
+    
+    /* We rely on the App.jsx inline style to set the animation steps/length. */
     
     /* Sets the width of the blinking cursor text to match the number of steps */
     border-right: 0.15em solid var(--hacker-green); 

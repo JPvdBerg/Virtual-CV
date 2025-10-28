@@ -460,24 +460,16 @@ function App() {
         </p>
       </section>
 
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
-        <a
-          href="#top"
-        >
-          ↑ Back to Top
-        </a>
-      </div>
-
       <footer>
         {/* --- INTERACTIVE CONSOLE FOOTER --- */}
         <div className='footer-console'>
             {/* The static prompt part */}
             <span style={{color: 'var(--hacker-green-light)'}}>[jpvdberg@virtualcv ~]$ </span>
             
-            {/* FIX: Use a command that is exactly 35 characters long (matches the 35 steps in CSS) */}
-            <span className='typing-line'>
-                showcase skills -a --optimize -r .
-            </span>
+            {/* FIX: Use a command that is stable and short */}
+            <span className='typing-line' style={{
+                 animation: 'typing 4s steps(35, end) infinite, blink-caret 0.75s step-end infinite'
+            }}>run systems_check --verbose . . . </span>
         </div>
         {/* --- END CONSOLE --- */}
         <div className='footer-copyright'>
