@@ -11,7 +11,7 @@
 }
 
 /* Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* Note: Monofonto is assumed to be loaded in index.html */
 
 body {
   /* Set body font to the developer font stack */
@@ -20,10 +20,8 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  /* FINAL LINE HEIGHT */
   line-height: 1.4; 
-  /* Base font size must be high for the dev font to look good */
-  font-size: 1.1em; 
+  font-size: 1.0em; 
   position: relative; 
   /* --- CUSTOM CURSOR IMPLEMENTATION --- */
   cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
@@ -309,9 +307,7 @@ div a[href="#top"]:hover {
   width: 100vw; 
   height: 100vh; 
   z-index: -1; 
-  /* --- INCREASED OPACITY --- */
-  opacity: 0.40; 
-  /* ------------------------ */
+  opacity: 0.10; 
   pointer-events: none; 
 }
 
@@ -359,7 +355,7 @@ div a[href="#top"]:hover {
 @media (max-width: 768px) {
     
     /* 1. Disable Heavy GPU Effects (Terminal & Glitch) */
-    header div:nth-child(2) { 
+    #terminal-wrapper {
         display: none !important;
     }
     #full-screen-glitch {

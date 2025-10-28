@@ -115,13 +115,13 @@ function App() {
       <header id="top">
         
         {/* --- FAULTY TERMINAL ENABLED HERE (Alone in the header) --- */}
-        <div style={{ position: 'absolute', width: '100%', height: '100vh', top: 0, left: 0, zIndex: 1, opacity: 1 }}>
-          <FaultyTerminal 
-            pageLoadAnimation={true} 
-            noiseAmp={0.5} 
-            curvature={0.1}
-          />
-        </div>
+        <div id="terminal-wrapper" style={{ position: 'absolute', width: '100%', height: '100vh', top: 0, left: 0, zIndex: 1, opacity: 1 }}>
+  <FaultyTerminal 
+    pageLoadAnimation={true} 
+    noiseAmp={0.5} 
+    curvature={0.1}
+  />
+</div>
         {/* --- END FAULTY TERMINAL --- */}
         
         <div className="overlay" style={{ position: 'relative', zIndex: 2 }}>
