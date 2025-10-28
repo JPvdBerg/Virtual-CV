@@ -5,33 +5,32 @@
   --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
   --text-color: #c0c0c0;          /* Lighter gray for general text */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
-  /* Define the professional font stack */
-  --dev-font: Consolas, "Courier New", monospace;
-  --hacker-font: 'VT323', monospace;
+  /* --- NEW MONOFONTO HIERARCHY --- */
+  --dev-font: "Courier New", monospace; /* Readable body font */
+  --hacker-font: Monofonto, monospace; /* Fallout Pip-Boy font */
 }
 
 /* Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* We rely on the font being installed or loaded via a standard link/system font */
+/* If Monofonto isn't available, the browser will use monospace */
 
 body {
-  /* Keep default font fallback, but remove font-family setting */
+  /* Set body font to Monofonto for the overall theme, relying on p, li rules for readability */
+  font-family: var(--dev-font); 
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  /* FINAL LINE HEIGHT - Improved vertical spacing */
   line-height: 1.4; 
-  /* Base font size must be high for the dev font to look good */
   font-size: 1.1em; 
   position: relative; 
-  /* --- CUSTOM HACKER CURSOR --- */
   cursor: crosshair; 
 }
 
-/* --- ADDED: FORCE FONT FOR READABLE CONTENT --- */
+/* --- ADDED: FORCE FONT FOR READABLE CONTENT (Consolas replacement) --- */
 p, ul, ol, li, .animated-list-container .item-text {
     font-family: var(--dev-font) !important;
-    font-size: 1.2em; /* Slightly larger size for readable content */
+    font-size: 1.2em; /* Standardized size for all readable content */
 }
 /* --- END ADDED --- */
 
@@ -146,12 +145,13 @@ h2 {
   font-family: var(--hacker-font);
 }
 
+/* H3 - Use Developer Font (for module/job headings) */
 h3 {
-  font-size: 1.8em;
+  font-size: 1.4em;
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  font-family: var(--hacker-font);
+  font-family: var(--dev-font); 
 }
 
 /* Lists */
@@ -167,7 +167,7 @@ ul li {
   padding-left: 2em; 
   /* FINAL FONT: Ensured list text uses readable font */
   font-family: var(--dev-font); 
-  font-size: 1.2em;
+  font-size: 1em; 
 }
 
 ul li::before {
@@ -260,16 +260,11 @@ footer {
 .typing-line {
     /* Style for the typing effect text */
     display: inline-block;
-    /* FIX: We removed white-space: nowrap from here. It is now only set via the animation steps for the typing portion. */
     overflow: hidden; 
-    
-    /* We rely on the App.jsx inline style to set the animation steps/length. */
-    /* Removed redundant animation declaration here */
     
     /* Sets the width of the blinking cursor text to match the number of steps */
     border-right: 0.15em solid var(--hacker-green); 
 }
-
 
 @keyframes typing {
     from { width: 0 }
