@@ -21,8 +21,8 @@ import {
 // --- Setup for DecryptedText defaults ---
 const DECRYPT_PROPS = {
   animateOn: "view",
-  speed: 40,
-  maxIterations: 15,
+  speed: 10,
+  maxIterations: 5,
   sequential: true,
   revealDirection: "center"
 };
