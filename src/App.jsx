@@ -472,8 +472,11 @@ function App() {
         {/* --- INTERACTIVE CONSOLE FOOTER --- */}
         <div className='footer-console'>
             <span style={{color: 'var(--hacker-green-light)'}}>[jpvdberg@virtualcv ~]$ </span>
-            <span className='typing-line'>_</span>
-            <span className='typing-line'>initiate systems_protocol 'showcase-skills' --run</span>
+            {/* FIX: Use a shorter, stable command and define a smaller number of steps */}
+            <span className='typing-line' style={{
+                 /* Match the length of the new command: 'run deploy' is 10 chars, plus 1 for space = 11 */
+                 animation: 'typing 1s steps(11, end) infinite, blink-caret 0.75s step-end infinite'
+            }}>run deploy</span>
         </div>
         {/* --- END CONSOLE --- */}
         <div className='footer-copyright'>
