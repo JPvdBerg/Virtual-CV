@@ -35,6 +35,10 @@ p, ul, ol, li, .animated-list-container .item-text {
 }
 /* --- END ADDED --- */
 
+/* Reset base font size for large content sections */
+section {
+    font-size: 1em; 
+}
 
 a {
   color: var(--highlight-text-color); 
@@ -256,17 +260,18 @@ footer {
 .typing-line {
     /* Style for the typing effect text */
     display: inline-block;
+    /* FIX: We removed white-space: nowrap from here. It is now only set via the animation steps for the typing portion. */
     overflow: hidden; 
-    white-space: nowrap; 
-    /* FIX: Reduced animation time and steps to prevent visible overflow */
-    animation: typing 4s steps(58, end) infinite,
-               blink-caret 0.75s step-end infinite;
+    
+    /* We rely on the App.jsx inline style to set the animation steps/length. */
+    /* Removed redundant animation declaration here */
+    
     /* Sets the width of the blinking cursor text to match the number of steps */
     border-right: 0.15em solid var(--hacker-green); 
 }
 
+
 @keyframes typing {
-    /* FIX: Updated width calculation to match reduced steps */
     from { width: 0 }
     to { width: 100% } 
 }

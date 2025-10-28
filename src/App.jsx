@@ -474,9 +474,9 @@ function App() {
             {/* The static prompt part */}
             <span style={{color: 'var(--hacker-green-light)'}}>[jpvdberg@virtualcv ~]$ </span>
             
-            {/* FIX: The entire command (including the cursor) is now in ONE single animated span */}
+            {/* FIX: Use a command that is exactly 35 characters long (matches the 35 steps in CSS) */}
             <span className='typing-line'>
-                initiate systems_protocol 'showcase-skills' --run
+                showcase skills -a --optimize -r .
             </span>
         </div>
         {/* --- END CONSOLE --- */}
