@@ -100,23 +100,23 @@ nav {
   font-family: var(--hacker-font); /* Override for nav font */
 }
 
-nav a {
-  color: var(--hacker-green);
+/* Update this section in src/App.css (around line 34) */
+a {
+  color: var(--highlight-text-color); 
   text-decoration: none;
-  /* FIX: Navigation overflow fix - Reduced padding */
-  padding: 10px 8px; 
-  margin: 0 5px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  /* FINAL NAV FONT SIZE */
-  font-size: 1.6em; 
+  transition: color 0.3s ease-in-out;
+  /* FIX: Force custom cursor on all links */
+  cursor: crosshair; 
 }
 
-nav a:hover {
-  background-color: rgba(0, 255, 0, 0.1); 
+a:hover {
   color: var(--hacker-green-light);
-  text-shadow: 0 0 5px var(--hacker-green-light);
-  text-decoration: none; 
+  text-decoration: underline;
+}
+
+/* Add this new block to target buttons and other interactives */
+button, input, select, .animated-list-container .item {
+    cursor: crosshair !important;
 }
 
 /* Sections */
