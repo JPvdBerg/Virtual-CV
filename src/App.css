@@ -22,17 +22,22 @@ body {
   padding: 0;
   /* FINAL LINE HEIGHT */
   line-height: 1.4; 
-  /* REDUCED BASE FONT SIZE */
-  font-size: 1.0em; 
+  /* Base font size must be high for the dev font to look good */
+  font-size: 1.1em; 
   position: relative; 
+  /* --- CUSTOM CURSOR IMPLEMENTATION --- */
   cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
+}
+
+/* Override the default pointer for all interactive elements */
+a, button, input, select, .animated-list-container .item {
+    cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair !important;
 }
 
 /* --- FORCE FONT FOR ALL READABLE CONTENT --- */
 p, ul, ol, li, .animated-list-container .item-text {
     font-family: var(--dev-font) !important;
-    /* FINAL STANDARDIZED SIZE FOR ALL TEXT CONTENT */
-    font-size: 1.15em; 
+    font-size: 1.2em; /* Standardized size for all readable content */
 }
 
 /* Reset base font size for large content sections */
@@ -103,12 +108,10 @@ nav {
 nav a {
   color: var(--hacker-green);
   text-decoration: none;
-  /* FIX: Navigation overflow fix - Reduced padding */
   padding: 10px 8px; 
   margin: 0 5px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  /* FINAL NAV FONT SIZE */
   font-size: 1.6em; 
 }
 
@@ -147,8 +150,7 @@ h2 {
 
 /* H3 - Use Developer Font (for module/job headings) */
 h3 {
-  /* REDUCED SIZE FOR HIERARCHY */
-  font-size: 1.15em; 
+  font-size: 1.4em;
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -163,11 +165,10 @@ ul {
 
 ul li {
   position: relative;
-  /* FINAL LIST ITEM SPACING AND ALIGNMENT */
   margin-bottom: 1.2em; 
   padding-left: 2em; 
   font-family: var(--dev-font); 
-  font-size: 1em; /* Inherits 1.15em from general p, li block */
+  font-size: 1em; 
 }
 
 ul li::before {
@@ -205,13 +206,13 @@ strong {
   margin-top: 0;
   color: var(--hacker-green);
   font-size: 1.5em;
-  font-family: var(--hacker-font); /* Keep Job Title in hacker font */
+  font-family: var(--hacker-font); 
 }
 
 .job p {
   margin-bottom: 0.5em;
   color: var(--text-color);
-  font-family: var(--dev-font); /* Ensure paragraph under job uses dev font */
+  font-family: var(--dev-font); 
 }
 
 .job ul {
@@ -243,26 +244,21 @@ footer {
   border-top: 1px solid var(--hacker-green);
   font-size: 0.9em;
   text-align: left;
-  font-family: var(--hacker-font); /* Keep footer/console in hacker font */
+  font-family: var(--hacker-font); 
 }
 
 .footer-console {
-    /* Console background */
     background-color: #0d0d0d;
     padding: 1rem 2rem;
     border-top: 1px dashed var(--hacker-green);
     color: var(--hacker-green);
     font-size: 1.1em;
-    /* FIX: Hides any overflow outside the visible container */
     overflow: hidden; 
 }
 
 .typing-line {
-    /* Style for the typing effect text */
     display: inline-block;
     overflow: hidden; 
-    
-    /* Sets the width of the blinking cursor text to match the number of steps */
     border-right: 0.15em solid var(--hacker-green); 
 }
 
@@ -284,7 +280,6 @@ footer {
     font-size: 0.9em;
 }
 
-
 /* Scroll to top link */
 div a[href="#top"] {
   display: inline-block;
@@ -295,7 +290,7 @@ div a[href="#top"] {
   margin-top: 20px;
   transition: all 0.3s ease;
   font-size: 1.4em; 
-  font-family: var(--hacker-font); /* Keep scroll link in hacker font */
+  font-family: var(--hacker-font); 
 }
 
 div a[href="#top"]:hover {
@@ -314,7 +309,9 @@ div a[href="#top"]:hover {
   width: 100vw; 
   height: 100vh; 
   z-index: -1; 
-  opacity: 0.05; 
+  /* --- INCREASED OPACITY --- */
+  opacity: 0.10; 
+  /* ------------------------ */
   pointer-events: none; 
 }
 
@@ -325,17 +322,15 @@ div a[href="#top"]:hover {
   border: none !important;
 }
 
-/* Fix: List item base style - making it transparent */
 .animated-list-container .item {
   background-color: transparent !important; 
   border: 1px solid rgba(0, 255, 0, 0.2) !important; 
   color: var(--text-color) !important;
   transition: border-color 0.3s ease, color 0.3s ease;
   overflow: hidden; 
-  font-family: var(--dev-font) !important; /* Ensure list items use the readable font */
+  font-family: var(--dev-font) !important; 
 }
 
-/* Fix: Selection state style - setting selected to transparent glow */
 .animated-list-container .item.selected {
   background-color: transparent !important; 
   border-color: var(--hacker-green) !important;
@@ -344,12 +339,10 @@ div a[href="#top"]:hover {
   transform: none; 
 }
 
-/* Fix: List item text color */
 .animated-list-container .item-text {
   color: inherit !important; 
 }
 
-/* Fix: AnimatedList scrollbar and gradients in App.css */
 .scroll-list::-webkit-scrollbar-track {
     background: var(--primary-bg-color) !important; 
 }
@@ -359,17 +352,32 @@ div a[href="#top"]:hover {
     background: linear-gradient(to top, var(--primary-bg-color), transparent) !important; 
 }
 
-/* --- MOBILE READABILITY AND PERFORMANCE FIXES --- */
+/* ======================================= */
+/* --- MOBILE READABILITY/PERFORMANCE FIXES (max-width: 768px) --- */
+/* ======================================= */
+
 @media (max-width: 768px) {
     
-    /* 1. Disable Faulty Terminal (Heavy GPU Effect) */
+    /* 1. Disable Heavy GPU Effects (Terminal & Glitch) */
     header div:nth-child(2) { 
         display: none !important;
     }
-    
-    /* 2. Disable Letter Glitch (Background Animation) */
     #full-screen-glitch {
         display: none !important;
+    }
+    
+    /* 2. Improve Nav Readability and Flow */
+    nav {
+        padding: 10px 0;
+        flex-direction: column; /* Stack nav links vertically */
+    }
+
+    nav a {
+        /* Increase vertical padding and use full width */
+        padding: 5px 0; 
+        margin: 5px auto;
+        font-size: 1.3em;
+        width: 90%;
     }
 
     /* 3. Improve contrast when the glitch background is gone */
@@ -377,12 +385,21 @@ div a[href="#top"]:hover {
         background-color: rgba(0, 0, 0, 0.95) !important;
     }
 
-    /* 4. Fix potential header alignment on tiny screens */
+    /* 4. Adjust sizes for mobile screen hierarchy */
     header h1 {
         font-size: 2.5em; 
     }
 
     header p {
-        font-size: 1.2em;
+        font-size: 1.1em;
+    }
+
+    h2 {
+        font-size: 2.0em;
+    }
+    
+    /* Ensure all body text is slightly smaller on mobile */
+    p, ul, ol, li, .animated-list-container .item-text {
+        font-size: 1.1em; 
     }
 }
