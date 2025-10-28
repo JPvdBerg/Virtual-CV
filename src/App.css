@@ -310,7 +310,7 @@ div a[href="#top"]:hover {
   height: 100vh; 
   z-index: -1; 
   /* --- INCREASED OPACITY --- */
-  opacity: 0.10; 
+  opacity: 0.40; 
   /* ------------------------ */
   pointer-events: none; 
 }
