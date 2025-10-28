@@ -3,7 +3,7 @@
   --primary-bg-color: #000000;    /* Pure black */
   --hacker-green: #00ff00;        /* Bright hacker green */
   --hacker-green-light: #33ff33;  /* Slightly lighter green for accents */
-  --text-color: #b0b0b0;          /* Lighter gray for general text */
+  --text-color: #c0c0c0;          /* Slightly brighter gray for better contrast */
   --highlight-text-color: #00ff00; /* Direct green for special links/text */
 }
 
@@ -16,11 +16,13 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-  /* FINAL LINE HEIGHT */
-  line-height: 1.15; 
+  /* IMPROVED VERTICAL RHYTHM */
+  line-height: 1.4; 
   /* FINAL FONT SIZE BOOST */
   font-size: 1.8em; 
   position: relative; 
+  /* --- CUSTOM HACKER CURSOR --- */
+  cursor: crosshair; 
 }
 
 a {
@@ -85,13 +87,13 @@ nav {
 nav a {
   color: var(--hacker-green);
   text-decoration: none;
-  /* FIX: Navigation overflow fix */
-  padding: 10px 12px; 
+  /* FIX: Navigation overflow fix - Reduced padding */
+  padding: 10px 8px; 
   margin: 0 5px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
   /* FINAL NAV FONT SIZE */
-  font-size: 1.6em; 
+  font-size: 1.5em; 
 }
 
 nav a:hover {
@@ -107,6 +109,7 @@ section {
   margin: 0 auto;
   max-width: 900px;
   position: relative; 
+  /* Solid contrast box for readability */
   background-color: rgba(0, 0, 0, 0.85); 
   border-radius: 0; 
   box-shadow: none; 
@@ -150,7 +153,7 @@ ul li::before {
   color: var(--hacker-green);
   position: absolute;
   left: 0;
-  /* FINAL ALIGNMENT FIX */
+  /* Aligns bullet point perfectly */
   top: 0; 
 }
 
@@ -167,7 +170,7 @@ strong {
 .education ul li::before {
   content: '└'; 
   color: var(--hacker-green-light);
-  /* FINAL ALIGNMENT FIX */
+  /* Aligns corner bullet perfectly */
   top: 0.1em; 
 }
 
@@ -218,7 +221,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.8);
   color: var(--text-color);
   border-top: 1px solid var(--hacker-green);
-  /* FINAL FOOTER FONT SIZE */
   font-size: 1.1em; 
 }
 
@@ -231,7 +233,6 @@ div a[href="#top"] {
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.3s ease;
-  /* FINAL SCROLL LINK FONT SIZE */
   font-size: 1.4em; 
 }
 
