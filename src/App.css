@@ -17,7 +17,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  font-size: 1.1em;
+  font-size: 1.5em;
   position: relative; 
 }
 
@@ -88,7 +88,7 @@ nav a {
   margin: 0 5px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
-  font-size: 1.1em; 
+  font-size: 1.4em; 
 }
 
 nav a:hover {
@@ -141,8 +141,8 @@ ul {
 
 ul li {
   position: relative;
-  margin-bottom: 0.8em;
-  padding-left: 1.5em; 
+  margin-bottom: 1em;
+  padding-left: 1.8em; 
 }
 
 ul li::before {
@@ -227,7 +227,7 @@ div a[href="#top"] {
   border-radius: 5px;
   margin-top: 20px;
   transition: all 0.3s ease;
-  font-size: 1.1em;
+  font-size: 1.4em;
 }
 
 div a[href="#top"]:hover {
