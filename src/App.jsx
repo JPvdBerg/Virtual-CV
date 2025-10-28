@@ -8,12 +8,13 @@ import LetterGlitch from './components/LetterGlitch.jsx';
 import FaultyTerminal from './components/FaultyTerminal.jsx'; 
 import LogoLoop from './components/LogoLoop.jsx';
 
-// --- Import icons for the LogoLoop demo (Only working icons remain) ---
+// --- Import icons for the LogoLoop demo (New Terminal Icon Added) ---
 import {
   SiReact,
   SiPython,
   SiMysql,
-  SiGit
+  SiGit,
+  SiGnuTerminal // <-- NEW ICON ADDED
 } from 'react-icons/si';
 
 // --- Setup for LogoLoop ---
@@ -24,6 +25,7 @@ const techLogos = [
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
+  { node: <SiGnuTerminal />, title: 'Terminal' }, // <-- NEW ICON USED
   { node: <SiGit />, title: 'Git' },
 ];
 
@@ -87,14 +89,14 @@ function App() {
   return (
     <>
       {/* --- GLITCH MOVED TO TOP LEVEL TO COVER ENTIRE BACKGROUND --- */}
-      <div id="full-screen-glitch" style={{ opacity: 0.05 }}> {/* <-- Changed opacity to 0.05 */}
-  <LetterGlitch
-     glitchSpeed={80} 
-     centerVignette={false} 
-     outerVignette={false} 
-     smooth={true} 
-  />
-</div>
+      <div id="full-screen-glitch" style={{ opacity: 0.05 }}>
+        <LetterGlitch
+           glitchSpeed={80} 
+           centerVignette={false} 
+           outerVignette={false} 
+           smooth={true} 
+        />
+      </div>
       {/* --- END FULL SCREEN GLITCH WRAPPER --- */}
       
       <header id="top">
@@ -145,7 +147,6 @@ function App() {
             href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
             target="_blank"
             rel="noopener noreferrer"
-            // No inline style: color handled by App.css
           >
             View My CV (Google Drive)
           </a>
@@ -198,7 +199,7 @@ function App() {
             overflow: 'hidden',
             marginTop: '2rem',
             marginBottom: '1rem',
-			backgroundColor: '#000000', /* <-- ADD THIS LINE */
+            backgroundColor: '#000000', 
           }}
         >
           <LogoLoop
@@ -209,7 +210,7 @@ function App() {
             gap={40}
             pauseOnHover
             fadeOut
-            fadeOutColor="#000000" /* <-- ENSURE THIS IS PURE BLACK */
+            fadeOutColor="#000000" 
           />
         </div>
 
@@ -344,9 +345,9 @@ function App() {
         {/* --- ANIMATED LIST MOVED HERE (Enabled) --- */}
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
           <AnimatedList 
-            items={achievementList} // Using the dedicated achievement list array
+            items={achievementList} 
             displayScrollbar={false}
-            className='animated-list-container' // Added class for App.css overrides
+            className='animated-list-container' 
           />
         </div>
         {/* --- END ANIMATED LIST --- */}
@@ -356,7 +357,6 @@ function App() {
             <a href="https://www.linkedin.com/feed/update/urn:li:activity:7350874250775277570/"
               target="_blank"
               rel="noopener noreferrer"
-              // No inline style: color handled by App.css
             >
               View Arcademia Game Jam Announcement
             </a>
@@ -373,7 +373,6 @@ function App() {
                 href="https://github.com/JPvdBerg/Minesweeper"
                 target="_blank"
                 rel="noopener noreferrer"
-                // No inline style: color handled by App.css
               >
                 Minesweeper Game
               </a>{' '}
@@ -385,7 +384,6 @@ function App() {
                 href="https://github.com/JPvdBerg/Snake-Game"
                 target="_blank"
                 rel="noopener noreferrer"
-                // No inline style: color handled by App.css
               >
                 Snake Game
               </a>{' '}
@@ -397,7 +395,6 @@ function App() {
                 href="https://github.com/JPvdBerg/Instant-Messaging-App"
                 target="_blank"
                 rel="noopener noreferrer"
-                // No inline style: color handled by App.css
               >
                 Instant Messaging App
               </a>{' '}
@@ -430,7 +427,6 @@ function App() {
         <p>
           <a
             href="mailto:janpaulvdberg@gmail.com"
-            // No inline style: color handled by App.css
           >
             janpaulvdberg@gmail.com
           </a>
@@ -438,7 +434,6 @@ function App() {
         <p>
           <a
             href="https://www.linkedin.com/in/jan-paul-van-den-berg-a46686270/"
-            // No inline style: color handled by App.css
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -448,7 +443,6 @@ function App() {
         <p>
           <a
             href="https://github.com/JPvdBerg"
-            // No inline style: color handled by App.css
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -458,7 +452,6 @@ function App() {
         <p>
           <a
             href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
-            // No inline style: color handled by App.css
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -470,7 +463,6 @@ function App() {
       <div style={{ textAlign: 'center', padding: '2rem' }}>
         <a
           href="#top"
-          // No inline style: color handled by App.css
         >
           ↑ Back to Top
         </a>
