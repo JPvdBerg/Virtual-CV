@@ -31,11 +31,13 @@ const DECRYPT_PROPS = {
 const techLogos = [
   { node: <SiPython />, title: 'Python' },
   { node: <FaJava />, title: 'Java' }, 
+  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>Kafka</span>, title: 'Kafka' }, // NEW
+  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>GameDev</span>, title: 'Game Development' }, // NEW
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C++</span>, title: 'C++' },
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
-  { node: <SiGnubash />, title: 'Terminal' }, 
+  { node: <SiGnubash />, title: 'Terminal' },
   { node: <SiGit />, title: 'Git' },
 ];
 
@@ -225,30 +227,33 @@ function App() {
         </div>
 
         <div className="skills">
-          <ul style={{ paddingLeft: '2rem' }}>
-            <li>
-              <strong><DecryptedText text="Programming Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Python, Java, C++, C#, MySQL, HTML" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Database Systems:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="SQLite, MySQL, SQL Server" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Networking:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Cisco Packet Tracer, strong understanding of the OSI model" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Systems Design:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="UML, Enhanced ERD (EERD), Crow’s Foot notation" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Software Tools:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Visual Studio, Oracle SQL Developer, Git" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Algorithms & Problem Solving:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Strong grasp of algorithm design and analysis including sorting, searching, and recursion" {...DECRYPT_PROPS} />
-            </li>
-            <li>
-              <strong><DecryptedText text="Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Fluent in English and Afrikaans" {...DECRYPT_PROPS} />
-            </li>
-          </ul>
-        </div>
+  <ul style={{ paddingLeft: '2rem' }}>
+    <li>
+      <strong><DecryptedText text="Programming Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Python, Java, C++, C#, MySQL, HTML, Kafka" {...DECRYPT_PROPS} /> {/* KAFKA ADDED */}
+    </li>
+    <li>
+      <strong><DecryptedText text="Data Handling:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Data Cleaning, SQL Server, MySQL, SQLite" {...DECRYPT_PROPS} /> {/* DATA CLEANING ADDED */}
+    </li>
+    <li>
+      <strong><DecryptedText text="Development Focus:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Game Development, Song Making, Algorithmic Analysis" {...DECRYPT_PROPS} /> {/* DEV FOCUS ADDED */}
+    </li>
+    <li>
+      <strong><DecryptedText text="Networking:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Cisco Packet Tracer, strong understanding of the OSI model" {...DECRYPT_PROPS} />
+    </li>
+    <li>
+      <strong><DecryptedText text="Systems Design:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="UML, Enhanced ERD (EERD), Crow’s Foot notation" {...DECRYPT_PROPS} />
+    </li>
+    <li>
+      <strong><DecryptedText text="Software Tools:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Visual Studio, Oracle SQL Developer, Git" {...DECRYPT_PROPS} />
+    </li>
+    <li>
+      <strong><DecryptedText text="Algorithms & Problem Solving:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Strong grasp of algorithm design and analysis including sorting, searching, and recursion" {...DECRYPT_PROPS} />
+    </li>
+    <li>
+      <strong><DecryptedText text="Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Fluent in English and Afrikaans" {...DECRYPT_PROPS} />
+    </li>
+  </ul>
+</div>
       </section>
 
       <section id="experience" className="fade-in-section">
