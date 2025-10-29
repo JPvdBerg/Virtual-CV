@@ -11,7 +11,7 @@
 }
 
 /* Global Styles */
-/* Note: Monofonto is assumed to be loaded in index.html */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
   /* Set body font to the developer font stack */
@@ -21,7 +21,7 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.4; 
-  font-size: 1.0em; 
+  font-size: 1.1em; 
   position: relative; 
   /* --- CUSTOM CURSOR IMPLEMENTATION --- */
   cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
@@ -43,20 +43,21 @@ section {
     font-size: 1em; 
 }
 
-/* Find this block in src/App.css (around line 34) and update it: */
-
 a {
   color: var(--highlight-text-color); 
   text-decoration: none;
   transition: color 0.3s ease-in-out;
-  /* FIX: Ensure the link also uses the custom cursor */
-  cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair; 
 }
 
 a:hover {
   color: var(--hacker-green-light);
-  /* FIX: Add !important to force the underline over any browser defaults/conflicts */
-  text-decoration: underline !important; 
+  /* --- FINAL LINK FIX: Targets the span inside the link to force underline on hover --- */
+  text-decoration: underline !important;
+}
+
+/* FIX: Target span children of links (used by DecryptedText) to ensure underline inheritance */
+a:hover span {
+    text-decoration: underline !important;
 }
 
 /* Header - Keep Hacker Font */
@@ -368,13 +369,13 @@ div a[href="#top"]:hover {
     }
     
     /* 2. Improve Nav Readability and Flow */
-   nav {
+    nav {
         padding: 10px 0;
         flex-direction: column; /* Stack nav links vertically */
     }
 
     nav a {
-        /* INCREASED VERTICAL PADDING for easier tapping */
+        /* Increase vertical padding and use full width */
         padding: 8px 0; 
         margin: 5px auto;
         font-size: 1.3em;
