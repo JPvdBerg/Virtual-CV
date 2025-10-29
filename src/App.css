@@ -153,9 +153,9 @@ h2 {
   font-family: var(--hacker-font);
 }
 
-/* H3 - Use Developer Font (for module/job headings) */
 h3 {
-  font-size: 1.4em;
+  /* This is the base size for module/job titles */
+  font-size: 1.4em; 
   color: var(--hacker-green-light);
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -194,10 +194,9 @@ strong {
   padding-left: 0;
 }
 
-.education ul li::before {
-  content: '└'; 
-  color: var(--hacker-green-light);
-  top: 0.1em; 
+.education ul li {
+    /* Use the same standardized size as all other body text */
+    font-size: 1.0em; 
 }
 
 /* Job experience specific */
