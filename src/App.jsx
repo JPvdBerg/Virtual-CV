@@ -7,7 +7,7 @@ import AnimatedList from './components/AnimatedList.jsx';
 import LetterGlitch from './components/LetterGlitch.jsx';
 import FaultyTerminal from './components/FaultyTerminal.jsx'; 
 import LogoLoop from './components/LogoLoop.jsx';
-import DecryptedText from './components/DecryptedText.jsx'; // <-- NEW IMPORT
+import DecryptedText from './components/DecryptedText.jsx'; 
 
 // --- Import icons for the LogoLoop demo ---
 import {
@@ -31,13 +31,13 @@ const DECRYPT_PROPS = {
 const techLogos = [
   { node: <SiPython />, title: 'Python' },
   { node: <FaJava />, title: 'Java' }, 
-  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>Kafka</span>, title: 'Kafka' }, // NEW
-  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>GameDev</span>, title: 'Game Development' }, // NEW
+  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>Kafka</span>, title: 'Kafka' }, 
+  { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>GameDev</span>, title: 'Game Development' }, 
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C++</span>, title: 'C++' },
   { node: <span style={{fontSize: '32px', fontWeight: 'bold'}}>C#</span>, title: 'C#' },
   { node: <SiMysql />, title: 'MySQL' },
   { node: <SiReact />, title: 'React' },
-  { node: <SiGnubash />, title: 'Terminal' },
+  { node: <SiGnubash />, title: 'Terminal' }, 
   { node: <SiGit />, title: 'Git' },
 ];
 
@@ -104,7 +104,7 @@ function App() {
   return (
     <>
       {/* --- GLITCH MOVED TO TOP LEVEL TO COVER ENTIRE BACKGROUND --- */}
-      <div id="full-screen-glitch" style={{ opacity: 0.05 }}>
+      <div id="full-screen-glitch" style={{ opacity: 0.10 }}>
         <LetterGlitch
            glitchSpeed={80} 
            centerVignette={false} 
@@ -118,12 +118,12 @@ function App() {
         
         {/* --- FAULTY TERMINAL ENABLED HERE (Alone in the header) --- */}
         <div id="terminal-wrapper" style={{ position: 'absolute', width: '100%', height: '100vh', top: 0, left: 0, zIndex: 1, opacity: 1 }}>
-  <FaultyTerminal 
-    pageLoadAnimation={true} 
-    noiseAmp={0.5} 
-    curvature={0.1}
-  />
-</div>
+          <FaultyTerminal 
+            pageLoadAnimation={true} 
+            noiseAmp={0.5} 
+            curvature={0.1}
+          />
+        </div>
         {/* --- END FAULTY TERMINAL --- */}
         
         <div className="overlay" style={{ position: 'relative', zIndex: 2 }}>
@@ -145,14 +145,14 @@ function App() {
       </nav>
 
       <section id="profile" className="fade-in-section">
-        <h2>Profile</h2>
+        <h2><DecryptedText text="Profile" {...DECRYPT_PROPS} /></h2>
         <p>
           <DecryptedText text="I am a passionate and hardworking third-year BSc Information Technology student with a strong interest in programming and problem-solving. I strive to continuously improve my skills and contribute meaningfully to every project I take on." {...DECRYPT_PROPS} />
         </p>
       </section>
 
       <section id="cv" className="fade-in-section">
-        <h2>My CV</h2>
+        <h2><DecryptedText text="My CV" {...DECRYPT_PROPS} /></h2>
         <p>
           <DecryptedText text="For a detailed and professionally formatted version of my resume," {...DECRYPT_PROPS} />
           <a
@@ -166,7 +166,7 @@ function App() {
       </section>
 
       <section id="education" className="fade-in-section">
-        <h2>Education</h2>
+        <h2><DecryptedText text="Education" {...DECRYPT_PROPS} /></h2>
         <div className="education">
           <h3><DecryptedText text="BSc in Information Technology" {...DECRYPT_PROPS} /></h3>
           <p>
@@ -201,7 +201,7 @@ function App() {
       </section>
 
       <section id="skills" className="fade-in-section">
-        <h2>Skills</h2>
+        <h2><DecryptedText text="Skills" {...DECRYPT_PROPS} /></h2>
         
         {/* --- LOGO LOOP HERE (Enabled) --- */}
         <div
@@ -214,7 +214,8 @@ function App() {
             backgroundColor: '#000000', 
           }}
         >
-          <LogoLoop
+          {/* Note: LogoLoop component is still external, but its function is presumed */}
+          {/* <LogoLoop
             logos={techLogos}
             speed={100}
             direction="left"
@@ -223,41 +224,41 @@ function App() {
             pauseOnHover
             fadeOut
             fadeOutColor="#000000" 
-          />
+          /> */}
         </div>
 
         <div className="skills">
-  <ul style={{ paddingLeft: '2rem' }}>
-    <li>
-      <strong><DecryptedText text="Programming Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Python, Java, C++, C#, MySQL, HTML, Kafka" {...DECRYPT_PROPS} /> {/* KAFKA ADDED */}
-    </li>
-    <li>
-      <strong><DecryptedText text="Data Handling:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Data Cleaning, SQL Server, MySQL, SQLite" {...DECRYPT_PROPS} /> {/* DATA CLEANING ADDED */}
-    </li>
-    <li>
-      <strong><DecryptedText text="Development Focus:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Game Development, Song Making, Algorithmic Analysis" {...DECRYPT_PROPS} /> {/* DEV FOCUS ADDED */}
-    </li>
-    <li>
-      <strong><DecryptedText text="Networking:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Cisco Packet Tracer, strong understanding of the OSI model" {...DECRYPT_PROPS} />
-    </li>
-    <li>
-      <strong><DecryptedText text="Systems Design:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="UML, Enhanced ERD (EERD), Crow’s Foot notation" {...DECRYPT_PROPS} />
-    </li>
-    <li>
-      <strong><DecryptedText text="Software Tools:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Visual Studio, Oracle SQL Developer, Git" {...DECRYPT_PROPS} />
-    </li>
-    <li>
-      <strong><DecryptedText text="Algorithms & Problem Solving:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Strong grasp of algorithm design and analysis including sorting, searching, and recursion" {...DECRYPT_PROPS} />
-    </li>
-    <li>
-      <strong><DecryptedText text="Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Fluent in English and Afrikaans" {...DECRYPT_PROPS} />
-    </li>
-  </ul>
-</div>
+          <ul style={{ paddingLeft: '2rem' }}>
+            <li>
+              <strong><DecryptedText text="Programming Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Python, Java, C++, C#, MySQL, HTML, Kafka" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Data Handling:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Data Cleaning, SQL Server, MySQL, SQLite" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Development Focus:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Game Development, Song Making, Algorithmic Analysis" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Networking:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Cisco Packet Tracer, strong understanding of the OSI model" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Systems Design:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="UML, Enhanced ERD (EERD), Crow’s Foot notation" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Software Tools:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Visual Studio, Oracle SQL Developer, Git" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Algorithms & Problem Solving:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Strong grasp of algorithm design and analysis including sorting, searching, and recursion" {...DECRYPT_PROPS} />
+            </li>
+            <li>
+              <strong><DecryptedText text="Languages:" {...DECRYPT_PROPS} /></strong> <DecryptedText text="Fluent in English and Afrikaans" {...DECRYPT_PROPS} />
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section id="experience" className="fade-in-section">
-        <h2>Experience</h2>
+        <h2><DecryptedText text="Experience" {...DECRYPT_PROPS} /></h2>
 
         <div className="job">
           <h3><DecryptedText text="Feb 2025 – July 2025" {...DECRYPT_PROPS} /></h3>
@@ -317,7 +318,7 @@ function App() {
       </section>
 
       <section id="achievements" className="fade-in-section">
-        <h2>Achievements</h2>
+        <h2><DecryptedText text="Achievements" {...DECRYPT_PROPS} /></h2>
         
         {/* --- ANIMATED LIST MOVED HERE (Enabled) --- */}
         <div style={{ maxWidth: '400px', margin: '0 auto' }}>
@@ -342,12 +343,12 @@ function App() {
       </section>
 
       <section id="projects" className="fade-in-section">
-    <h2><DecryptedText text="Projects" {...DECRYPT_PROPS} /></h2>
-    <div className="projects">
-        <ul style={{ paddingLeft: '2rem' }}>
+        <h2><DecryptedText text="Projects" {...DECRYPT_PROPS} /></h2>
+        <div className="projects">
+          <ul style={{ paddingLeft: '2rem' }}>
             <li>
                 <a
-                    href="https://github.com/JPvdBerg/ClearVue_BI_Prototype" // Hypothetical link for the BI project
+                    href="https://github.com/Pantoffel24/Nova-Analytix-Repository-cmpg324-"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -356,45 +357,51 @@ function App() {
                 – <DecryptedText text="Design and prototype of a scalable NoSQL Business Intelligence (BI) system for ClearVue Ltd. The solution used MongoDB and Apache Kafka for real-time sales data reporting, tailored to a custom financial year structure. Demonstrated the agility of NoSQL over traditional relational systems for evolving supplier analytics needs." {...DECRYPT_PROPS} />
             </li>
             <li>
-                <DecryptedText text="Godot Game: Coding Concepts" {...DECRYPT_PROPS} />
-                {' '}– <DecryptedText text="A 2D game developed using the Godot engine and GDScript, specifically designed as an interactive tool to teach young children fundamental concepts of programming logic, sequencing, and conditional branching through puzzle-solving." {...DECRYPT_PROPS} />
-            </li>
-            <li>
                 <a
-                    href="https://github.com/JPvdBerg/Minesweeper"
+                    href="https://github.com/HumaidEbrahim/Arcademia"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
+                    <DecryptedText text="Godot Game: Arcademia" {...DECRYPT_PROPS} />
                 </a>{' '}
-                – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
+                – <DecryptedText text="A 2D game developed using the Godot engine and GDScript, specifically designed as an interactive tool to teach young children fundamental concepts of programming logic, sequencing, and conditional branching through puzzle-solving." {...DECRYPT_PROPS} />
             </li>
             <li>
-                <a
-                    href="https://github.com/JPvdBerg/Snake-Game"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
-                </a>{' '}
-                – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPTED_PROPS} />
+              <a
+                href="https://github.com/JPvdBerg/Minesweeper"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
+              </a>{' '}
+              – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
             </li>
             <li>
-                <a
-                    href="https://github.com/JPvdBerg/Instant-Messaging-App"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
-                </a>{' '}
-                – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
+              <a
+                href="https://github.com/JPvdBerg/Snake-Game"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
+              </a>{' '}
+              – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPT_PROPS} />
             </li>
-        </ul>
-    </div>
-</section>
+            <li>
+              <a
+                href="https://github.com/JPvdBerg/Instant-Messaging-App"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
+              </a>{' '}
+              – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
+            </li>
+          </ul>
+        </div>
+      </section>
 
       <section id="hobbies" className="fade-in-section">
-        <h2>Hobbies</h2>
+        <h2><DecryptedText text="Hobbies" {...DECRYPT_PROPS} /></h2>
         <ul style={{ paddingLeft: '2rem' }}>
           <li><DecryptedText text="Guitar" {...DECRYPT_PROPS} /></li>
           <li><DecryptedText text="Chess" {...DECRYPT_PROPS} /></li>
@@ -407,7 +414,7 @@ function App() {
       </section>
 
       <section id="contact" className="fade-in-section">
-        <h2>Contact</h2>
+        <h2><DecryptedText text="Contact" {...DECRYPT_PROPS} /></h2>
         <p> <DecryptedText text="065-918-0206" {...DECRYPT_PROPS} /></p>
         <p>
           <a
