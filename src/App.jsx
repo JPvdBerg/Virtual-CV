@@ -342,42 +342,56 @@ function App() {
       </section>
 
       <section id="projects" className="fade-in-section">
-        <h2>Projects</h2>
-        <div className="projects">
-          <ul style={{ paddingLeft: '2rem' }}>
+    <h2><DecryptedText text="Projects" {...DECRYPT_PROPS} /></h2>
+    <div className="projects">
+        <ul style={{ paddingLeft: '2rem' }}>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Minesweeper"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
-              </a>{' '}
-              – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
+                <a
+                    href="https://github.com/JPvdBerg/ClearVue_BI_Prototype" // Hypothetical link for the BI project
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DecryptedText text="ClearVue BI System (RFP 02/2025)" {...DECRYPT_PROPS} />
+                </a>{' '}
+                – <DecryptedText text="Design and prototype of a scalable NoSQL Business Intelligence (BI) system for ClearVue Ltd. The solution used MongoDB and Apache Kafka for real-time sales data reporting, tailored to a custom financial year structure. Demonstrated the agility of NoSQL over traditional relational systems for evolving supplier analytics needs." {...DECRYPT_PROPS} />
             </li>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Snake-Game"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
-              </a>{' '}
-              – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPT_PROPS} />
+                <DecryptedText text="Godot Game: Coding Concepts" {...DECRYPT_PROPS} />
+                {' '}– <DecryptedText text="A 2D game developed using the Godot engine and GDScript, specifically designed as an interactive tool to teach young children fundamental concepts of programming logic, sequencing, and conditional branching through puzzle-solving." {...DECRYPT_PROPS} />
             </li>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Instant-Messaging-App"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
-              </a>{' '}
-              – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
+                <a
+                    href="https://github.com/JPvdBerg/Minesweeper"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
+                </a>{' '}
+                – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
             </li>
-          </ul>
-        </div>
-      </section>
+            <li>
+                <a
+                    href="https://github.com/JPvdBerg/Snake-Game"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
+                </a>{' '}
+                – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPTED_PROPS} />
+            </li>
+            <li>
+                <a
+                    href="https://github.com/JPvdBerg/Instant-Messaging-App"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
+                </a>{' '}
+                – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
+            </li>
+        </ul>
+    </div>
+</section>
 
       <section id="hobbies" className="fade-in-section">
         <h2>Hobbies</h2>
