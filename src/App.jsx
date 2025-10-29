@@ -8,6 +8,7 @@ import LetterGlitch from './components/LetterGlitch.jsx';
 import FaultyTerminal from './components/FaultyTerminal.jsx'; 
 import LogoLoop from './components/LogoLoop.jsx';
 import DecryptedText from './components/DecryptedText.jsx'; 
+import ClickSpark from './components/ClickSpark.jsx'; // <-- NEW IMPORT
 
 // --- Import icons for the LogoLoop demo ---
 import {
@@ -56,6 +57,15 @@ const achievementList = [
     node: <DecryptedText text={text} {...DECRYPT_PROPS} />,
     originalText: text
 }));
+
+// --- Click Spark Props ---
+const SPARK_PROPS = {
+  sparkColor: '#00FF00',
+  sparkSize: 12,
+  sparkRadius: 25,
+  sparkCount: 12,
+  duration: 500,
+};
 
 
 function App() {
@@ -133,15 +143,18 @@ function App() {
       </header>
 
       <nav>
-        <a href="#profile"><DecryptedText text="Profile" {...DECRYPT_PROPS} /></a>
-        <a href="#cv"><DecryptedText text="CV" {...DECRYPT_PROPS} /></a>
-        <a href="#education"><DecryptedText text="Education" {...DECRYPT_PROPS} /></a>
-        <a href="#skills"><DecryptedText text="Skills" {...DECRYPT_PROPS} /></a>
-        <a href="#experience"><DecryptedText text="Experience" {...DECRYPT_PROPS} /></a>
-        <a href="#achievements"><DecryptedText text="Achievements" {...DECRYPT_PROPS} /></a>
-        <a href="#projects"><DecryptedText text="Projects" {...DECRYPT_PROPS} /></a>
-        <a href="#hobbies"><DecryptedText text="Hobbies" {...DECRYPT_PROPS} /></a>
-        <a href="#contact"><DecryptedText text="Contact" {...DECRYPT_PROPS} /></a>
+        {/* WRAP NAV LINKS IN CLICKSPARK */}
+        <ClickSpark {...SPARK_PROPS}>
+            <a href="#profile"><DecryptedText text="Profile" {...DECRYPT_PROPS} /></a>
+            <a href="#cv"><DecryptedText text="CV" {...DECRYPT_PROPS} /></a>
+            <a href="#education"><DecryptedText text="Education" {...DECRYPT_PROPS} /></a>
+            <a href="#skills"><DecryptedText text="Skills" {...DECRYPT_PROPS} /></a>
+            <a href="#experience"><DecryptedText text="Experience" {...DECRYPT_PROPS} /></a>
+            <a href="#achievements"><DecryptedText text="Achievements" {...DECRYPT_PROPS} /></a>
+            <a href="#projects"><DecryptedText text="Projects" {...DECRYPT_PROPS} /></a>
+            <a href="#hobbies"><DecryptedText text="Hobbies" {...DECRYPT_PROPS} /></a>
+            <a href="#contact"><DecryptedText text="Contact" {...DECRYPT_PROPS} /></a>
+        </ClickSpark>
       </nav>
 
       <section id="profile" className="fade-in-section">
@@ -155,13 +168,15 @@ function App() {
         <h2><DecryptedText text="My CV" {...DECRYPT_PROPS} /></h2>
         <p>
           <DecryptedText text="For a detailed and professionally formatted version of my resume," {...DECRYPT_PROPS} />
-          <a
-            href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DecryptedText text="View My CV (Google Drive)" {...DECRYPT_PROPS} />
-          </a>
+          <ClickSpark {...SPARK_PROPS}>
+            <a
+              href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DecryptedText text="View My CV (Google Drive)" {...DECRYPT_PROPS} />
+            </a>
+          </ClickSpark>
         </p>
       </section>
 
@@ -214,17 +229,7 @@ function App() {
             backgroundColor: '#000000', 
           }}
         >
-          {/* Note: LogoLoop component is still external, but its function is presumed */}
-          {/* <LogoLoop
-            logos={techLogos}
-            speed={100}
-            direction="left"
-            logoHeight={32}
-            gap={40}
-            pauseOnHover
-            fadeOut
-            fadeOutColor="#000000" 
-          /> */}
+          {/* LogoLoop component usage (Presumed) */}
         </div>
 
         <div className="skills">
@@ -332,12 +337,14 @@ function App() {
         
         <div className="achievement">
           <p style={{marginTop: '2rem'}}>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7350874250775277570/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <DecryptedText text="View Arcademia Game Jam Announcement" {...DECRYPT_PROPS} />
-            </a>
+            <ClickSpark {...SPARK_PROPS}>
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7350874250775277570/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <DecryptedText text="View Arcademia Game Jam Announcement" {...DECRYPT_PROPS} />
+              </a>
+            </ClickSpark>
           </p>
         </div>
       </section>
@@ -347,6 +354,7 @@ function App() {
         <div className="projects">
           <ul style={{ paddingLeft: '2rem' }}>
             <li>
+              <ClickSpark {...SPARK_PROPS}>
                 <a
                     href="https://github.com/Pantoffel24/Nova-Analytix-Repository-cmpg324-"
                     target="_blank"
@@ -354,9 +362,11 @@ function App() {
                 >
                     <DecryptedText text="ClearVue BI System (RFP 02/2025)" {...DECRYPT_PROPS} />
                 </a>{' '}
-                – <DecryptedText text="Design and prototype of a scalable NoSQL Business Intelligence (BI) system for ClearVue Ltd. The solution used MongoDB and Apache Kafka for real-time sales data reporting, tailored to a custom financial year structure. Demonstrated the agility of NoSQL over traditional relational systems for evolving supplier analytics needs." {...DECRYPT_PROPS} />
+              </ClickSpark>
+              – <DecryptedText text="Design and prototype of a scalable NoSQL Business Intelligence (BI) system for ClearVue Ltd. The solution used MongoDB and Apache Kafka for real-time sales data reporting, tailored to a custom financial year structure. Demonstrated the agility of NoSQL over traditional relational systems for evolving supplier analytics needs." {...DECRYPT_PROPS} />
             </li>
             <li>
+              <ClickSpark {...SPARK_PROPS}>
                 <a
                     href="https://github.com/HumaidEbrahim/Arcademia"
                     target="_blank"
@@ -364,36 +374,43 @@ function App() {
                 >
                     <DecryptedText text="Godot Game: Arcademia" {...DECRYPT_PROPS} />
                 </a>{' '}
-                – <DecryptedText text="A 2D game developed using the Godot engine and GDScript, specifically designed as an interactive tool to teach young children fundamental concepts of programming logic, sequencing, and conditional branching through puzzle-solving." {...DECRYPT_PROPS} />
+              </ClickSpark>
+              – <DecryptedText text="A 2D game developed using the Godot engine and GDScript, specifically designed as an interactive tool to teach young children fundamental concepts of programming logic, sequencing, and conditional branching through puzzle-solving." {...DECRYPT_PROPS} />
             </li>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Minesweeper"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
-              </a>{' '}
+              <ClickSpark {...SPARK_PROPS}>
+                <a
+                  href="https://github.com/JPvdBerg/Minesweeper"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DecryptedText text="Minesweeper Game" {...DECRYPT_PROPS} />
+                </a>{' '}
+              </ClickSpark>
               – <DecryptedText text="A classic tile-based Minesweeper game developed in Java with a clean GUI and recursive reveal logic." {...DECRYPT_PROPS} />
             </li>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Snake-Game"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
-              </a>{' '}
+              <ClickSpark {...SPARK_PROPS}>
+                <a
+                  href="https://github.com/JPvdBerg/Snake-Game"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DecryptedText text="Snake Game" {...DECRYPT_PROPS} />
+                </a>{' '}
+              </ClickSpark>
               – <DecryptedText text="A simple and responsive version of Snake built in Java using key event handling and grid movement." {...DECRYPT_PROPS} />
             </li>
             <li>
-              <a
-                href="https://github.com/JPvdBerg/Instant-Messaging-App"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
-              </a>{' '}
+              <ClickSpark {...SPARK_PROPS}>
+                <a
+                  href="https://github.com/JPvdBerg/Instant-Messaging-App"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <DecryptedText text="Instant Messaging App" {...DECRYPT_PROPS} />
+                </a>{' '}
+              </ClickSpark>
               – <DecryptedText text="A Python-based chat application that supports real-time communication over the internet using sockets." {...DECRYPT_PROPS} />
             </li>
           </ul>
@@ -417,47 +434,57 @@ function App() {
         <h2><DecryptedText text="Contact" {...DECRYPT_PROPS} /></h2>
         <p> <DecryptedText text="065-918-0206" {...DECRYPT_PROPS} /></p>
         <p>
-          <a
-            href="mailto:janpaulvdberg@gmail.com"
-          >
-            <DecryptedText text="janpaulvdberg@gmail.com" {...DECRYPT_PROPS} />
-          </a>
+          <ClickSpark {...SPARK_PROPS}>
+            <a
+              href="mailto:janpaulvdberg@gmail.com"
+            >
+              <DecryptedText text="janpaulvdberg@gmail.com" {...DECRYPT_PROPS} />
+            </a>
+          </ClickSpark>
         </p>
         <p>
-          <a
-            href="https://www.linkedin.com/in/jan-paul-van-den-berg-a46686270/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DecryptedText text="LinkedIn Profile" {...DECRYPT_PROPS} />
-          </a>
+          <ClickSpark {...SPARK_PROPS}>
+            <a
+              href="https://www.linkedin.com/in/jan-paul-van-den-berg-a46686270/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DecryptedText text="LinkedIn Profile" {...DECRYPT_PROPS} />
+            </a>
+          </ClickSpark>
         </p>
         <p>
-          <a
-            href="https://github.com/JPvdBerg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DecryptedText text="My GitHub Profile" {...DECRYPT_PROPS} />
-          </a>
+          <ClickSpark {...SPARK_PROPS}>
+            <a
+              href="https://github.com/JPvdBerg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DecryptedText text="My GitHub Profile" {...DECRYPT_PROPS} />
+            </a>
+          </ClickSpark>
         </p>
         <p>
-          <a
-            href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <DecryptedText text="View My CV" {...DECRYPT_PROPS} />
-          </a>
+          <ClickSpark {...SPARK_PROPS}>
+            <a
+              href="https://drive.google.com/file/d/1Mr4eMlSnT7cUkGX7gqudgmiCtbTQlp59/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DecryptedText text="View My CV" {...DECRYPT_PROPS} />
+            </a>
+          </ClickSpark>
         </p>
       </section>
 
       <div style={{ textAlign: 'center', padding: '2rem' }}>
-        <a
-          href="#top"
-        >
-          <DecryptedText text="↑ Back to Top" {...DECRYPT_PROPS} />
-        </a>
+        <ClickSpark {...SPARK_PROPS}>
+          <a
+            href="#top"
+          >
+            <DecryptedText text="↑ Back to Top" {...DECRYPT_PROPS} />
+          </a>
+        </ClickSpark>
       </div>
 
       <footer>
