@@ -104,11 +104,14 @@
 }
 
 /* --- LOGO LOOP FLICKER EFFECT --- */
-.logoloop__item svg, .logoloop__node {
-    /* Apply base glow */
-    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
-    /* Apply flicker animation */
-    animation: flicker 4s infinite alternate;
+.logoloop__item {
+  flex: 0 0 auto;
+  margin-right: var(--logoloop-gap);
+  /* FIX: Add slight vertical margin to prevent bounding box collision */
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: var(--logoloop-logoHeight);
+  line-height: 1;
 }
 
 @keyframes flicker {
