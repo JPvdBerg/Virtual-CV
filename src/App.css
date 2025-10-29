@@ -29,6 +29,7 @@ body {
 
 /* Override the default pointer for all interactive elements */
 a, button, input, select, .animated-list-container .item {
+    /* Use the safest root-relative path and include !important */
     cursor: url('/pipboy_fallout_green_arrow_cursor.cur'), crosshair !important;
 }
 
