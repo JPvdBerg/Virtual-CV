@@ -47,38 +47,11 @@
 }
 
 .logoloop__item svg, .logoloop__node {
-    /* Apply base glow */
-    filter: drop-shadow(0 0 3px rgba(0, 255, 0, 0.6));
-    /* Apply flicker animation */
-    animation: flicker 4s infinite alternate;
+    /* REMOVED: filter: drop-shadow and animation: flicker */
+    /* Icons and text will now be static and crisp */
 }
 
-@keyframes flicker {
-    0%, 100% {
-        opacity: 1;
-        filter: drop-shadow(0 0 5px var(--hacker-green));
-    }
-    5% {
-        opacity: 0.9;
-        filter: drop-shadow(0 0 4px var(--hacker-green));
-    }
-    10% {
-        opacity: 1;
-        filter: drop-shadow(0 0 6px var(--hacker-green));
-    }
-    15% {
-        opacity: 0.8;
-        filter: drop-shadow(0 0 2px var(--hacker-green));
-    }
-    20% {
-        opacity: 1;
-        filter: drop-shadow(0 0 7px var(--hacker-green));
-    }
-    70% {
-        opacity: 1;
-        filter: drop-shadow(0 0 5px var(--hacker-green));
-    }
-}
+/* REMOVED: @keyframes flicker */
 
 
 .logoloop__link {
@@ -120,4 +93,3 @@
     var(--logoloop-fadeColor, var(--logoloop-fadeColorAuto)) 0%,
     rgba(0, 0, 0, 0) 100%
   );
-}
