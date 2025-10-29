@@ -24,13 +24,13 @@ body {
   font-size: 1.1em; 
   position: relative; 
   /* --- CUSTOM CURSOR IMPLEMENTATION --- */
- cursor: url('/Virtual-CV/pipboy_fallout_green_arrow_cursor.cur'), crosshair;
+ cursor: url('/Virtual-CV/cursor.cur'), crosshair;
 }
 
 /* Override the default pointer for all interactive elements */
 a, button, input, select, .animated-list-container .item {
     /* Use the safest root-relative path and include !important */
-    cursor: url('/Virtual-CV/pipboy_fallout_green_arrow_cursor.cur'), crosshair !important;
+    cursor: url('/Virtual-CV/cursor.cur'), crosshair !important;
 }
 
 /* --- FORCE FONT FOR ALL READABLE CONTENT --- */
