@@ -359,6 +359,8 @@ div a[href="#top"]:hover {
 /* --- MOBILE READABILITY/PERFORMANCE FIXES (max-width: 768px) --- */
 /* ======================================= */
 
+/* Find the MOBILE READABILITY/PERFORMANCE FIXES section (around line 235) */
+
 @media (max-width: 768px) {
     
     /* 1. Disable Heavy GPU Effects (Terminal & Glitch) */
@@ -369,20 +371,30 @@ div a[href="#top"]:hover {
         display: none !important;
     }
     
-    /* 2. Improve Nav Readability and Flow */
+    /* --- FIX: MOBILE NAVIGATION HORIZONTAL SCROLL MENU --- */
     nav {
+        /* Remove vertical stacking (flex-direction: column) */
+        flex-direction: row; 
+        /* Enable horizontal scrolling for the menu */
+        overflow-x: auto; 
+        /* Hide the vertical wrapping */
+        flex-wrap: nowrap; 
         padding: 10px 0;
-        flex-direction: column; /* Stack nav links vertically */
+        /* Ensure the background covers the whole scrollable area */
+        justify-content: flex-start;
     }
 
     nav a {
-        /* Increase vertical padding and use full width */
-        padding: 8px 0; 
-        margin: 5px auto;
-        font-size: 1.3em;
-        width: 90%;
-        display: block; /* Ensures links take up full width for padding to apply */
+        /* Set minimum padding to look clean */
+        padding: 10px 15px; 
+        margin: 0 0px; /* Remove horizontal margin */
+        /* Ensure the links stay in one line and don't take full width */
+        display: inline-block; 
+        white-space: nowrap;
+        /* Reduce font size slightly to fit more links on screen */
+        font-size: 1.4em; 
     }
+    /* --- END MOBILE NAVIGATION FIX --- */
 
     /* 3. Improve contrast when the glitch background is gone */
     section {
